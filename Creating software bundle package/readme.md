@@ -1,5 +1,5 @@
 ## Software list
-### 7-zip
+7-zip <br />
 Download link: [7-Zip](https://7-zip.org/download.html) <br />
 
 ```powershell
