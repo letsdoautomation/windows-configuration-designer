@@ -14,3 +14,8 @@ Mozilla Firefox download link: [Firefox](https://www.mozilla.org/en-US/firefox/a
 # Make sure that executable name is correct
 cmd /c "Firefox Setup 115.0.2.exe" /S
 ```
+Google chrome download link: [Google Chrome Enterprise](https://chromeenterprise.google/browser/download/#windows-tab) <br />
+```powershell
+# Make sure that executable name is correct
+cmd /c googlechromestandaloneenterprise64.msi /qn /norestart
+```
