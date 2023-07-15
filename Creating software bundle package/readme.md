@@ -24,3 +24,8 @@ Download [Notepad++](https://notepad-plus-plus.org/downloads/) <br />
 # Make sure that executable name is correct
 cmd /c npp.8.5.4.Installer.x64.exe /S
 ```
+Download [VLC](https://www.videolan.org/) <br />
+```powershell
+# Make sure that executable name is correct
+cmd /c vlc-3.0.18-win64.exe /S
+```
