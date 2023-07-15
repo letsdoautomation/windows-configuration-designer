@@ -12,5 +12,5 @@ cmd /c AcroRdrDC2300320215_en_US.exe /sAll /rs /msi EULA_ACCEPT=YES
 Mozilla Firefox download link: [Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release) <br />
 ```powershell
 # Make sure that executable name is correct
-cmd /c Firefox Setup 115.0.2.exe /S
+cmd /c "Firefox Setup 115.0.2.exe" /S
 ```
