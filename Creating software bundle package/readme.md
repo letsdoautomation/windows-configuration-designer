@@ -19,3 +19,9 @@ Google chrome download link: [Google Chrome Enterprise](https://chromeenterprise
 # Make sure that executable name is correct
 cmd /c googlechromestandaloneenterprise64.msi /qn /norestart
 ```
+[Notepad++ download](https://notepad-plus-plus.org/downloads/) <br />
+### Install command
+```powershell
+# Make sure that executable name is correct
+cmd /c npp.8.5.4.Installer.x64.exe /S
+```
