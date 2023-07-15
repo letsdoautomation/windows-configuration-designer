@@ -29,3 +29,13 @@ Download [VLC](https://www.videolan.org/) <br />
 # Make sure that executable name is correct
 cmd /c vlc-3.0.18-win64.exe /S
 ```
+Download [Visual Studio Code](https://code.visualstudio.com/Download) <br />
+```powershell
+# Make sure that executable name is correct
+cmd /c VSCodeSetup-x64-1.80.0.exe /VERYSILENT /NORESTART /SUPPRESSMSGBOXES /MERGETASKS=!runcode
+```
+Download [Zoom](https://support.zoom.us/hc/en-us/articles/207373866-Zoom-Installers) <br />
+```powershell
+# Make sure that executable name is correct
+cmd /c ZoomInstallerFull.msi /quiet /qn /norestart
+```
