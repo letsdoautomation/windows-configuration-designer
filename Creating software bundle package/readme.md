@@ -2,7 +2,7 @@
 Download [7-Zip](https://7-zip.org/download.html) <br />
 ```powershell
 # Make sure that executable name is correct
-cmd /c 7z2301-x64.exe /S
+cmd /c msiexec.exe /i "7z2301-x64.msi" /quiet /qn /norestart
 ```
 Download [Adobe Acrobat Reader DC](https://get.adobe.com/reader/enterprise/) <br />
 ```powershell
