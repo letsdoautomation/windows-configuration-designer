@@ -6,8 +6,7 @@ cmd /c xcopy /-I tsetup-x64.4.9.2.exe %ALLUSERSPROFILE%\deployment_files\telegra
 ```
 Download: [Microsoft Teams](https://learn.microsoft.com/en-us/microsoftteams/msi-deployment) <br />
 ```powershell
-# Make sure that executable name is correct
-msiexec.exe /i Teams_windows_x64.msi /quiet /qn /norestart
+cmd /c Teams_windows_x64.msi /quiet /qn /norestart
 ```
 Download link: [WinRAR](https://www.win-rar.com/download.html?&L=0) <br />
 ```powershell
