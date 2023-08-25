@@ -7,7 +7,7 @@ Download: [WinRAR](https://www.win-rar.com/download.html?&L=0) <br />
 [PSEXEC with Windows Configuration Designer example](https://learn.microsoft.com/en-us/windows/configuration/provisioning-packages/provisioning-script-to-install-app#powershell-example) <br />
 [PSEXEC download](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec)****
 
-## Install WinRAR <br />
+## Install Microsoft Teams <br />
 ```powershell
 msiexec.exe /i Teams_windows_x64.msi /quiet /qn /norestart
 ```
