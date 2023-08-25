@@ -5,7 +5,7 @@ Download: [WinRAR](https://www.win-rar.com/download.html?&L=0) <br />
 
 ## PSEXEC
 [PSEXEC with Windows Configuration Designer example](https://learn.microsoft.com/en-us/windows/configuration/provisioning-packages/provisioning-script-to-install-app#powershell-example) <br />
-[PSEXEC download](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec)****
+[PSEXEC download](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec)
 
 ## Install Microsoft Teams <br />
 ```powershell
