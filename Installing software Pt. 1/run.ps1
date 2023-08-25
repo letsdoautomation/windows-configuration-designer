@@ -36,11 +36,11 @@ cp $telegram_exe "$($env:ProgramData)\deployment_files\telegram\tsetup.exe" -For
 
 New-Item "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\Install telegram" -Force
 
-$reg_active_setup_run_winrar = @{
+$reg_active_setup_install_telegram = @{
     Path  = "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\Install telegram"
     Name  = "StubPath"
     Value = 'reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce" /v InstallTelegram /t REG_SZ /d "{0}\deployment_files\telegram\tsetup.exe {1}"' -f $env:ProgramData, $telegram_args
     Force = $true
 }
 
-New-ItemProperty @reg_active_setup_run_winrar
+New-ItemProperty @reg_active_setup_install_telegram
