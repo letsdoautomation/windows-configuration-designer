@@ -53,12 +53,6 @@
 powershell.exe -ExecutionPolicy Bypass -File setup.ps1
 ```
 
-<b>ActiveSetup example</b>
-
-```powershell
-ni "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\InstallSpotify" | New-ItemProperty -Name "StubPath" -Value 'REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce" /v InstallSpotify /t REG_SZ /d "C:\SpotifyFullSetup.exe /Silent"'
-```
-
 <b>Disable "Privacy Experience"</b>
 
 <img src="img/privacySettings.png" width=40% height=40%>
