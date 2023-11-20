@@ -18,13 +18,13 @@
 <b>Machine wide:</b><br />
 
 * [7-Zip](https://7-zip.org/download.html)
-    * msiexec.exe /i "7z2301-x64.msi" /quiet /qn /norestart
+    * msiexec.exe /i 7z2301-x64.msi /quiet /norestart ALLUSERS=1
 * [Adobe Acrobat Reader DC](https://get.adobe.com/reader/enterprise/)
     * cmd /c AcroRdrDC2300620380_en_US.exe /sAll /rs /msi EULA_ACCEPT=YES
 * [Blender](https://www.blender.org/)
-    * cmd /c blender-4.0.1-windows-x64.msi /quiet /norestart ALLUSERS=1
+    * msiexec.exe /i blender-4.0.1-windows-x64.msi /quiet /norestart ALLUSERS=1
 * [Cisco WebEx](https://www.webex.com/downloads.html)
-    * cmd /c Webex_en.msi /quiet /norestart ALLUSERS=1
+    * msiexec.exe /i Webex_en.msi /quiet /norestart ALLUSERS=1
 
 <b>User wide:</b><br />
 
@@ -40,6 +40,11 @@ cmd /c net user admin /add && net localgroup administrators admin /add
 
 ```powershell
 reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE /v DisablePrivacyExperience /t REG_DWORD /d 1
+```
+
+## Execute Powershell script
+```powershell
+powershell.exe -ExecutionPolicy Bypass -File run.ps1
 ```
 
 # Related videos
