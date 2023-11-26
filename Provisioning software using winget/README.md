@@ -66,3 +66,7 @@ cmd /c powercfg /x -monitor-timeout-ac 0 && powercfg /x -standby-timeout-ac 0
 
 [Windows Registry: Run and RunOnce](https://youtu.be/zgFzCq5uEPw) <br />
 [Windows Registry: Active Setup](https://youtu.be/HrVJ7wdvfmo) <br />
+
+<b>Windows Configuration Designer</b>
+
+[Windows Configuration Designer: Downloading and installing](https://youtu.be/cSa12YaNMbU) <br />
