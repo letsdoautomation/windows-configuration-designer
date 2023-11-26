@@ -22,7 +22,7 @@
     * Preparing for winget stage with setup.ps1 script:
         * Placing winget update files in C:\programdata\provisioning
         * Placing provisioning.ps1 in C:\programdata\provisioning
-        * Preparing RunOnce in HCLM to execute software provisioning
+        * Preparing RunOnce in HKLM to execute software provisioning
     * Configuring autologon
         * Skipping OOBE
         * Skipping "Privacy Experience"
