@@ -18,7 +18,7 @@
 
 <b>Provisioning stages</b>
 
-* Windows Configuration Designer stage:
+* <b>Windows Configuration Designer stage:</b>
     * Preparing for winget stage with setup.ps1 script:
         * Placing winget update files in C:\programdata\provisioning
         * Placing provisioning.ps1 in C:\programdata\provisioning
@@ -29,7 +29,7 @@
         * Creating admin user without password
         * Adding admin to Administrators group
     * Disabling sleep
-* Winget stage using provisioning.ps1 script:
+* <b>Winget stage using provisioning.ps1 script:</b>
     * Updating winget
     * Waiting for network connection
     * Installing software
