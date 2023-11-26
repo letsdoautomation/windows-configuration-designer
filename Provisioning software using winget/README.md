@@ -34,8 +34,9 @@
     * Waiting for network connection
     * Installing software
 
-* Winget update files:
-    * [Install winget on Windows Sandbox](https://learn.microsoft.com/en-us/windows/package-manager/winget/#install-winget-on-windows-sandbox) <br />
+<b>Winget update files:</b>
+
+* [Install winget on Windows Sandbox](https://learn.microsoft.com/en-us/windows/package-manager/winget/#install-winget-on-windows-sandbox) <br />
 
 <b>Execute setup.ps1</b>
 
