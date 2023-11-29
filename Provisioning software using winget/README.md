@@ -71,3 +71,4 @@ cmd /c powercfg /x -monitor-timeout-ac 0 && powercfg /x -standby-timeout-ac 0
 <b>Windows Configuration Designer</b>
 
 [Windows Configuration Designer: Downloading and installing](https://youtu.be/cSa12YaNMbU) <br />
+[Windows Configuration Designer: Configuring WiFi connection](https://youtu.be/S2ysvv4KvRY) <br />

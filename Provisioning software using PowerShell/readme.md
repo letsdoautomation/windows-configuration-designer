@@ -77,3 +77,8 @@ cmd /c net user admin /add && net localgroup administrators admin /add
 
 [Windows Registry: Run and RunOnce](https://youtu.be/zgFzCq5uEPw) <br />
 [Windows Registry: Active Setup](https://youtu.be/HrVJ7wdvfmo) <br />
+
+<b>Windows Configuration Designer</b>
+
+[Windows Configuration Designer: Downloading and installing](https://youtu.be/cSa12YaNMbU) <br />
+[Windows Configuration Designer: Configuring WiFi connection](https://youtu.be/S2ysvv4KvRY) <br />
