@@ -1,6 +1,6 @@
+# Wait for network
 $ProgressPreference_bk = $ProgressPreference
 $ProgressPreference = 'SilentlyContinue'
-# Wait for network
 do{
     $ping = Test-NetConnection '8.8.8.8' -InformationLevel Quiet
     if(!$ping){

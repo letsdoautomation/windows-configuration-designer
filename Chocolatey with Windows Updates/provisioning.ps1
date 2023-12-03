@@ -1,12 +1,15 @@
 # Wait for network
-do {
+$ProgressPreference_bk = $ProgressPreference
+$ProgressPreference = 'SilentlyContinue'
+do{
     $ping = Test-NetConnection '8.8.8.8' -InformationLevel Quiet
-    if (!$ping) {
+    if(!$ping){
         cls
         'Wainting for network connection' | Out-Host
         sleep -s 5
     }
-} while (!$ping)
+} while(!$ping)
+$ProgressPreference = $ProgressPreference_bk
 
 ##
 # Windows Update part
@@ -54,7 +57,7 @@ else {
     "notepadplusplus.install"
 
     $packages | % {
-        choco install $_ -y --no-progress
+        choco install $_ -y --no-progress --ignore-checksums
     }
 }
 
