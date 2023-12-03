@@ -17,7 +17,7 @@
         * Creating admin user without password
         * Adding admin to Administrators group
     * Disabling sleep
-* <b>Chocolatey stage using provisioning.ps1 script:</b>
+* <b>Windows Update stage using provisioning.ps1 script:</b>
     * Waiting for network connection
     * Setup PSWindowsUpdate
     * Installing Windows updates
