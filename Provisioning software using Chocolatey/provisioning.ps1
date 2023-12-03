@@ -1,3 +1,5 @@
+$ProgressPreference_bk = $ProgressPreference
+$ProgressPreference = 'SilentlyContinue'
 # Wait for network
 do{
     $ping = Test-NetConnection '8.8.8.8' -InformationLevel Quiet
@@ -7,7 +9,11 @@ do{
         sleep -s 5
     }
 } while(!$ping)
+$ProgressPreference = $ProgressPreference_bk
 
+##
+# Chocolatey part
+##
 # Chocolatey software installation
 $packages =
 "adobereader",

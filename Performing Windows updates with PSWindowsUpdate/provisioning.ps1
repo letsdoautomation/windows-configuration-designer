@@ -10,6 +10,7 @@ do{
     }
 } while(!$ping)
 $ProgressPreference = $ProgressPreference_bk
+
 ##
 # Windows Update part
 ##
