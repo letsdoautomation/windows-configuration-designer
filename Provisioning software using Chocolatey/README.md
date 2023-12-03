@@ -38,7 +38,7 @@
 
 ```powershell
 # Make sure that executable name is correct
-msiexec.exe /i chocolatey-2.2.2.0.msi /quiet /qn /norestart
+msiexec.exe /i chocolatey-2.2.2.0.msi /qn /norestart
 ```
 
 <b>Execute setup.ps1</b>
