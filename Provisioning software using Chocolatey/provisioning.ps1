@@ -21,7 +21,7 @@ $packages =
 "notepadplusplus.install"
 
 $packages | %{
-    choco install $_ -y --no-progress
+    choco install $_ -y --no-progress --ignore-checksums
 }
 
 Write-Host "All Done!" -ForegroundColor Green
