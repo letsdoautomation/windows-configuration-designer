@@ -9,7 +9,6 @@ do{
 } while(!$ping)
 
 # Chocolatey software installation
-
 $packages =
 "adobereader",
 "microsoft-teams.install",
