@@ -2,7 +2,7 @@ $provisioning = "$($env:ProgramData)\provisioning"
 
 ni $provisioning -ItemType Directory -Force | Out-Null
 
-gci | ?{$_.name -ne "setup.ps1"} | %{
+gci -File | ?{$_.name -ne "setup.ps1"} | %{
     cp $_.FullName "$($provisioning)\$($_.name)" -Force
 }
 
