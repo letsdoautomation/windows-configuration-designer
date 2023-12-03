@@ -22,7 +22,7 @@
     * Setup PSWindowsUpdate
     * Installing Windows updates
 
-b>Execute setup.ps1</b>
+<b>Execute setup.ps1</b>
 
 ```powershell
 powershell.exe -ExecutionPolicy Bypass -File setup.ps1
