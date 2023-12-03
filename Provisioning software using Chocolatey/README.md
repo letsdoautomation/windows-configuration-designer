@@ -30,7 +30,7 @@
     * Waiting for network connection
     * Installing software
 
-<b>Chocolatey installtion file:</b>
+<b>Install Chocolatey:</b>
 
 * [Chocolatey](https://github.com/chocolatey/choco) <br /><br />
 

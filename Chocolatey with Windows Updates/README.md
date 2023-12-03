@@ -39,7 +39,7 @@
 powershell.exe -ExecutionPolicy Bypass -File setup.ps1
 ```
 
-<b>Chocolatey installtion file:</b>
+<b>Install Chocolatey:</b>
 
 * [Chocolatey](https://github.com/chocolatey/choco) <br /><br />
 
