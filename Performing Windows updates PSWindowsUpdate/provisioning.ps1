@@ -7,7 +7,7 @@ do{
         sleep -s 5
     }
 } while(!$ping)
-
+cls
 ##
 # Windows Update part
 ##
