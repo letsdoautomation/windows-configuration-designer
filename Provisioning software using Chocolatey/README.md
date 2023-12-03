@@ -14,21 +14,19 @@
 * Create admin user without password
 * Add admin to Administrators group
 * Skip "Privacy Experience"
-* Configure Wi-Fi autoconnect
 * Disable sleep for monitor and computer
 
 <b>Provisioning stages</b>
 
 * <b>Windows Configuration Designer stage:</b>
     * Installing Chocolatey
-    * Configuring Wi-Fi autoconnect
     * Configuring autologon
         * Skipping OOBE
         * Skipping "Privacy Experience"
         * Creating admin user without password
         * Adding admin to Administrators group
     * Disabling sleep
-* <b>Winget stage using provisioning.ps1 script:</b>
+* <b>Chocolatey stage using provisioning.ps1 script:</b>
     * Waiting for network connection
     * Installing software
 
