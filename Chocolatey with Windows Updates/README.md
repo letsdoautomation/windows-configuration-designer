@@ -27,6 +27,7 @@
         * Creating admin user without password
         * Adding admin to Administrators group
     * Disabling sleep
+    * Configuring RUNONCE registry key to execute provisioning.ps1 for stage 2
 * <b>Chocolatey stage using provisioning.ps1 script:</b>
     * Waiting for network connection
     * Setup PSWindowsUpdate
