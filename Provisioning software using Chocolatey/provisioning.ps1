@@ -29,5 +29,7 @@ $packages | %{
     choco install $_ -y --no-progress --ignore-checksums
 }
 
+# best place to add more actions
+
 Write-Host "All Done!" -ForegroundColor Green
 Read-Host

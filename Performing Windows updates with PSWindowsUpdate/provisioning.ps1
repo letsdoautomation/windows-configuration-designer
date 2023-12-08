@@ -1,14 +1,14 @@
 # Wait for network
 $ProgressPreference_bk = $ProgressPreference
 $ProgressPreference = 'SilentlyContinue'
-do{
+do {
     $ping = Test-NetConnection '8.8.8.8' -InformationLevel Quiet
-    if(!$ping){
+    if (!$ping) {
         cls
         'Wainting for network connection' | Out-Host
         sleep -s 5
     }
-} while(!$ping)
+} while (!$ping)
 $ProgressPreference = $ProgressPreference_bk
 
 ##
@@ -35,14 +35,17 @@ if ($null -ne $updates) {
 
 $status = Get-WURebootStatus -Silent
 
-if($status){
+if ($status) {
     $setup_runonce = @{
-        Path = "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce"
-        Name = "execute_provisioning"
+        Path  = "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce"
+        Name  = "execute_provisioning"
         Value = "cmd /c powershell.exe -ExecutionPolicy Bypass -File {0}\provisioning.ps1" -f "$($env:ProgramData)\provisioning"
     }
     New-ItemProperty @setup_runonce | Out-Null
     Restart-Computer
+}
+else {
+    # best place to add more actions
 }
 
 Write-Host "All Done!" -ForegroundColor Green
