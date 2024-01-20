@@ -13,7 +13,7 @@
         * Setup RunOnce to execute provisioning.ps1 after <b>admin user logon</b>
 
 * provisioning.ps1 actions:
-    * Configure software:
+    * Perform software configuration:
         * Configure Brave
         * Configure Google Chrome
         * Configure Edge
