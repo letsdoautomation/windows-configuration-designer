@@ -29,7 +29,7 @@
         * Change computer name
         * Reboot computer
 
-## Setup
+## Package setup:
 <b>Install Chocolatey:</b>
 
 * [Chocolatey](https://github.com/chocolatey/choco) <br /><br />
@@ -47,7 +47,7 @@ msiexec.exe /i chocolatey-2.2.2.0.msi /qn /norestart
 powershell.exe -ExecutionPolicy Bypass -File setup.ps1
 ```
 
-## Related content
+## Related content:
 * <b>Windows Configuration Desiner:</b>
     * [Windows Configuration Designer: Downloading and installing](https://youtu.be/cSa12YaNMbU)
 * <b>Brave package:</b>
