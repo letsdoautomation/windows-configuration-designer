@@ -2,6 +2,8 @@ param(
     [switch]$first
 )
 
+$usb_drive_name = 'USB Drive'
+
 $provisioning = [System.IO.DirectoryInfo]"$($env:ProgramData)\provisioning"
 
 # run computer/software configuration scripts
@@ -60,7 +62,7 @@ if ($status) {
 }
 else {
     # chocolatey software installation
-    $driveLetter = Get-Volume | ? { $_.FileSystemLabel -eq "New Volume" } | select -expand DriveLetter
+    $driveLetter = Get-Volume | ? { $_.FileSystemLabel -eq $usb_drive_name } | select -expand DriveLetter
 
     $packages =
     [PSCustomObject]@{
