@@ -35,12 +35,6 @@ msiexec.exe /i googlechromestandaloneenterprise64.msi /qn /norestart
 cmd /c AcroRdrDC2400120643_en_US.exe /sAll /rs /msi EULA_ACCEPT=YES
 ```
 
-<b>Export-DefaultAppAssociations:</b>
-
-```powershell
-dism /online /Export-DefaultAppAssociations:"C:\associations.xml"
-```
-
 <b>Execute setup.ps1:</b>
 
 ```powershell
