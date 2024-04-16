@@ -5,13 +5,13 @@
 * Install applications:
     * Google Chrome
     * Adobe Reader
-* Set Default Applications:
+* Execute associations.ps1
     * Google Chrome as default browser
     * Adobe Reader as default PDF reader
 * Execute setup.p1
     * Create local admin user
-    * Skip OOBE
-* Skip "Privacy experiance"
+    * Skip "Privacy experiance"
+* Skip OOBE
 
 <b>Rules to folow:</b>
 
