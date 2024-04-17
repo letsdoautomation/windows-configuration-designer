@@ -73,3 +73,7 @@ ls "C:\Users\" -Attributes Directory -Force | ?{$_.FullName -notin $env:USERPROF
 
     $start_layout.CopyTo("$($destination)\start2.bin", $true)
 }
+
+# Prevent OneDrive from istalling
+
+ni "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\DisableOneDrive" | New-ItemProperty -Name "StubPath" -Value 'REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDriveSetup /f'
