@@ -74,6 +74,13 @@ ls "C:\Users\" -Attributes Directory -Force | ?{$_.FullName -notin $env:USERPROF
     $start_layout.CopyTo("$($destination)\start2.bin", $true)
 }
 
-# Prevent OneDrive from istalling
+# Prevent OneDrive from installing
 
 ni "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\DisableOneDrive" | New-ItemProperty -Name "StubPath" -Value 'REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDriveSetup /f'
+
+# Prevent Outlook (new) and Dev Home from installing
+
+"HKLM:\SOFTWARE\Microsoft\WindowsUpdate\Orchestrator\UScheduler_Oobe\DevHomeUpdate",
+"HKLM:\SOFTWARE\Microsoft\WindowsUpdate\Orchestrator\UScheduler_Oobe\OutlookUpdate" | %{
+    ri $_ -force
+}
