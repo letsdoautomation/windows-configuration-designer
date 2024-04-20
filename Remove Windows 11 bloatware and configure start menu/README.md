@@ -5,7 +5,7 @@
 * Execute setup.p1
     * Remove default Windows store apps
     * Configure start menu layout
-    * Prevent OneDrive from installing
+    * Prevent OneDrive, Outlook (new) and Home Dev from installing
     * Create local admin user
     * Skip "Privacy experiance"
 * Skip OOBE
