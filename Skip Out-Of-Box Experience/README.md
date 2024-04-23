@@ -4,9 +4,10 @@
 
 * Create bare minimum package to go from OOBE to users desktop
     * Skip OOBE
-    * Skip Privacy Experiance
-    * Create local administrators account
-    * (OPTIONAL) Configure Power Settings
+    * Execute setup.ps1
+        * Skip Privacy Experiance
+        * Create local administrators account
+        * (OPTIONAL) Configure Power Settings
 
 # Execute setup.ps1
 
