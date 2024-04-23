@@ -9,7 +9,7 @@
         * Create local administrators account
         * (OPTIONAL) Configure Power Settings
 
-# Execute setup.ps1
+<b>Execute setup.ps1:</b>
 
 ```powershell
 powershell.exe -ExecutionPolicy Bypass -File setup.ps1
