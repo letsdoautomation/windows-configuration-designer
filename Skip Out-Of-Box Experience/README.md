@@ -1,4 +1,4 @@
-# Windows Configuration Designer: Skip OOBE
+# Windows Configuration Designer: Skip Out-Of-Box Experience
 
 <b>Objectives:</b>
 
