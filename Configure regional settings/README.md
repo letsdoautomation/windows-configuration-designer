@@ -8,13 +8,14 @@
         * Skip Privacy Experiance
         * Create local administrators account
         * Configure Power Settings
-        * Execute oobe-regional.ps1 (Hungerian)
+        * Execute oobe-regional.ps1 (Hungarian)
             * Configure time zone
             * Configure keyboard settings
             * Configure home location
             * Configure locale
             * Configure region
         * Configure RunOnce to execute desktop-provisioning.ps1
+            * Change interface language to Hungarian
 
 <b>Execute oobe-setup.ps1:</b>
 
