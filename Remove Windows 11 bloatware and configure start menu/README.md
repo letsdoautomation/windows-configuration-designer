@@ -20,7 +20,7 @@
 <b>Execute setup.ps1:</b>
 
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File setup.ps1
+powershell.exe -ExecutionPolicy Bypass -File oobe-setup.ps1
 ```
 
 ## Related videos
