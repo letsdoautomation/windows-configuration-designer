@@ -5,12 +5,12 @@
 * Install applications:
     * Google Chrome
     * Adobe Reader
-* Execute associations.ps1
-    * Google Chrome as default browser
-    * Adobe Reader as default PDF reader
 * Execute setup.p1
     * Create local admin user
     * Skip "Privacy experiance"
+    * Execute oobe-associations.ps1
+        * Google Chrome as default browser
+        * Adobe Reader as default PDF reader
 * Skip OOBE
 
 <b>Rules to folow:</b>
@@ -38,13 +38,13 @@ cmd /c AcroRdrDC2400120643_en_US.exe /sAll /rs /msi EULA_ACCEPT=YES
 <b>Execute setup.ps1:</b>
 
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File setup.ps1
+powershell.exe -ExecutionPolicy Bypass -File oobe-setup.ps1
 ```
 
 <b>Execute associations.ps1:</b>
 
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File associations.ps1
+powershell.exe -ExecutionPolicy Bypass -File oobe-associations.ps1
 ```
 
 ## Related videos

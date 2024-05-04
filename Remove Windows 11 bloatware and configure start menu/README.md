@@ -2,12 +2,13 @@
 
 <b>Objectives:</b>
 
-* Execute setup.p1
-    * Remove default Windows store apps
-    * Configure start menu layout
-    * Prevent OneDrive, Outlook (new) and Home Dev from installing
+* Execute oobe-setup.p1
     * Create local admin user
     * Skip "Privacy experiance"
+    * Execute oobe-bloatware.ps1
+        * Remove default Windows store apps
+        * Configure start menu layout
+        * Prevent OneDrive, Outlook (new) and Home Dev from installing
 * Skip OOBE
 
 
