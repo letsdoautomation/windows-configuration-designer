@@ -29,7 +29,12 @@ powershell.exe -ExecutionPolicy Bypass -File oobe-setup.ps1
 <b>PowerShell:</b>
 
 [PowerShell: Export StartLayout, Import StartLayout alternatives for Windows 11](https://youtu.be/j-8FmXk8ssg) <br />
-[PowerShell: Using Get-AppxProvisionedPackage, Remove-AppxProvisionedPackage to modify Online image](https://youtu.be/SevFgIkzAKk)
+[PowerShell: Using Get-AppxProvisionedPackage, Remove-AppxProvisionedPackage to modify Online image](https://youtu.be/SevFgIkzAKk) <br />
+
+<b>Windows:</b>
+
+[Windows: Prevent Outlook new and Dev Home from installing for new users](https://youtu.be/zkN0DyI9mLI) <br />
+[Windows: Prevent OneDrive from installing for new users](https://youtu.be/-u2MbM-ROto) <br />
 
 <b>Windows Registry</b>
 
