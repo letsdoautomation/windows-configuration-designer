@@ -43,5 +43,5 @@ powershell.exe -ExecutionPolicy Bypass -File oobe-setup.ps1
 
 <b>Windows Configuration Designer:</b>
 
-[Windows Configuration Designer: Skip Out-Of-Box Experience](https://youtu.be/Lqf4i1nHV7I)
+[Windows Configuration Designer: Skip Out-Of-Box Experience](https://youtu.be/Lqf4i1nHV7I) <br />
 [Windows Configuration Designer playlist](https://www.youtube.com/playlist?list=PLVncjTDMNQ4SAh9zjdreUBYSzSf7L5IX2)
