@@ -36,11 +36,12 @@ powershell.exe -ExecutionPolicy Bypass -File oobe-setup.ps1
 [Windows: Prevent Outlook new and Dev Home from installing for new users](https://youtu.be/zkN0DyI9mLI) <br />
 [Windows: Prevent OneDrive from installing for new users](https://youtu.be/-u2MbM-ROto) <br />
 
-<b>Windows Registry</b>
+<b>Windows Registry:</b>
 
 [Windows Registry: Run and RunOnce](https://youtu.be/zgFzCq5uEPw) <br />
 [Windows Registry: Active Setup](https://youtu.be/HrVJ7wdvfmo)
 
 <b>Windows Configuration Designer:</b>
 
+[Windows Configuration Designer: Skip Out-Of-Box Experience](https://youtu.be/Lqf4i1nHV7I)
 [Windows Configuration Designer playlist](https://www.youtube.com/playlist?list=PLVncjTDMNQ4SAh9zjdreUBYSzSf7L5IX2)
