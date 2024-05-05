@@ -2,7 +2,7 @@
 
 <b>Objectives:</b>
 
-* Create bare minimum package to go from OOBE to users desktop
+* Create bare minimum package to go from OOBE to users desktop and configure regional settings
     * Skip OOBE
     * Execute oobe-setup.ps1
         * Skip Privacy Experiance
