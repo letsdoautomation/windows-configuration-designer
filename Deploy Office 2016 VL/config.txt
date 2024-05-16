@@ -1,0 +1,3 @@
+;!@Install@!UTF-8!
+RunProgram="setup.exe /adminfile configuration.MSP"
+;!@InstallEnd@!
