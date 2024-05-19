@@ -7,13 +7,13 @@ $user = New-LocalUser @local_user
 $user | Set-LocalUser -PasswordNeverExpires $true 
 $user | Add-LocalGroupMember -Group "Administrators"
 
-# Skip "Privacy Experiance" and configure RunOnce
+# Skip "Privacy Experiance"
 $settings =
 [PSCustomObject]@{
     Path  = "SOFTWARE\Policies\Microsoft\Windows\OOBE"
     Name  = "DisablePrivacyExperience"
     Value = 1
-}
+} | group Path
 
 foreach ($setting in $settings) {
     $registry = [Microsoft.Win32.Registry]::LocalMachine.OpenSubKey($setting.Name, $true)
