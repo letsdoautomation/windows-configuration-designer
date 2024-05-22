@@ -12,7 +12,7 @@
 
 * Create self-extracting file executable with 7-Zip
 
-### Part 1: Creating self-extracting file executable
+### Part 1: Creating self-extracting executable
 
 ### Part 2: Creating provisioning package
 
