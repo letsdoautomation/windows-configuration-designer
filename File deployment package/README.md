@@ -22,7 +22,7 @@
 powershell.exe -ExecutionPolicy Bypass -File oobe-setup.ps1
 ```
 
-<b>Execute Office 2016 VL installtion:</b>
+<b>Execute file deployment:</b>
 
 ```batch
 cmd /c copy files.exe %TEMP% && cmd /c %TEMP%\files.exe -y -o"C:\Files"
