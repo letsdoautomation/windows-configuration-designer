@@ -41,12 +41,6 @@ cmd /c AcroRdrDC2400220759_en_US.exe /sAll /rs /msi EULA_ACCEPT=YES
 powershell.exe -ExecutionPolicy Bypass -File oobe-setup.ps1
 ```
 
-<b>Execute associations.ps1:</b>
-
-```powershell
-powershell.exe -ExecutionPolicy Bypass -File oobe-associations.ps1
-```
-
 ## Related videos
 
 <b>PowerShell:</b>
