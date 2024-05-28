@@ -35,7 +35,7 @@ msiexec.exe /i googlechromestandaloneenterprise64.msi /qn /norestart
 cmd /c AcroRdrDC2400220759_en_US.exe /sAll /rs /msi EULA_ACCEPT=YES
 ```
 
-<b>Execute setup.ps1:</b>
+<b>Execute oobe-setup.ps1:</b>
 
 ```powershell
 powershell.exe -ExecutionPolicy Bypass -File oobe-setup.ps1
