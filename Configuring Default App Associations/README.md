@@ -5,7 +5,7 @@
 * Install applications:
     * Google Chrome
     * Adobe Reader
-* Execute setup.p1
+* Execute oobe-setup.ps1
     * Create local admin user
     * Skip "Privacy experiance"
     * Execute oobe-associations.ps1
