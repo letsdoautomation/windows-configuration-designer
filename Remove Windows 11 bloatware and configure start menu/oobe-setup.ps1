@@ -1,6 +1,6 @@
 # Execute oobe scripts
 
-. .\oobe-associations.ps1
+. .\oobe-bloatware.ps1
 
 # Create local admin account
 
