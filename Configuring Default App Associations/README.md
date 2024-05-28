@@ -32,7 +32,7 @@ msiexec.exe /i googlechromestandaloneenterprise64.msi /qn /norestart
 <b>Install Adobe Reader:</b>
 
 ```powershell
-cmd /c AcroRdrDC2400120643_en_US.exe /sAll /rs /msi EULA_ACCEPT=YES
+cmd /c AcroRdrDC2400220759_en_US.exe /sAll /rs /msi EULA_ACCEPT=YES
 ```
 
 <b>Execute setup.ps1:</b>
