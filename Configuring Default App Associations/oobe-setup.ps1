@@ -1,3 +1,10 @@
+# Execute oobe scripts
+
+. .\oobe-associations.ps1
+
+# Create local admin account
+
+
 $local_user = @{
     Name                 = 'admin'
     NoPassword           = $true

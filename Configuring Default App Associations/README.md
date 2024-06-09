@@ -5,7 +5,7 @@
 * Install applications:
     * Google Chrome
     * Adobe Reader
-* Execute setup.p1
+* Execute oobe-setup.ps1
     * Create local admin user
     * Skip "Privacy experiance"
     * Execute oobe-associations.ps1
@@ -32,19 +32,13 @@ msiexec.exe /i googlechromestandaloneenterprise64.msi /qn /norestart
 <b>Install Adobe Reader:</b>
 
 ```powershell
-cmd /c AcroRdrDC2400120643_en_US.exe /sAll /rs /msi EULA_ACCEPT=YES
+cmd /c AcroRdrDC2400220759_en_US.exe /sAll /rs /msi EULA_ACCEPT=YES
 ```
 
-<b>Execute setup.ps1:</b>
+<b>Execute oobe-setup.ps1:</b>
 
 ```powershell
 powershell.exe -ExecutionPolicy Bypass -File oobe-setup.ps1
-```
-
-<b>Execute associations.ps1:</b>
-
-```powershell
-powershell.exe -ExecutionPolicy Bypass -File oobe-associations.ps1
 ```
 
 ## Related videos

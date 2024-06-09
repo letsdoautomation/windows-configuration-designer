@@ -12,7 +12,7 @@
 
 * Create self-extracting file executable with 7-Zip
 
-### Part 1: Creating self-extracting file executable
+### Part 1: Creating self-extracting executable
 
 ### Part 2: Creating provisioning package
 
@@ -22,10 +22,10 @@
 powershell.exe -ExecutionPolicy Bypass -File oobe-setup.ps1
 ```
 
-<b>Execute Office 2016 VL installtion:</b>
+<b>Execute file deployment:</b>
 
 ```batch
-cmd /c copy files.exe %TEMP% && cmd /c %TEMP%\files.exe -y -o"C:\Windows\Temp\Files"
+cmd /c copy files.exe %TEMP% && cmd /c %TEMP%\files.exe -y -o"C:\Files"
 ```
 
 ## Realted videos
