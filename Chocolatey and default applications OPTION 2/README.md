@@ -1,8 +1,10 @@
-# Windows Configuration Designer: Chocolatey and default applications OPTION 1
+# Windows Configuration Designer: Chocolatey and default applications OPTION 2
 
 <b>Downloads:</b>
 
 * [Chocolatey](https://github.com/chocolatey/choco)
+* [Google Chrome](https://chromeenterprise.google/browser/download/#windows-tab)
+* [Adobe Acrobat Reader DC](https://get.adobe.com/reader/enterprise/)
 
 <b>Objectives:</b>
 
@@ -28,6 +30,7 @@
     * Execute oobe-setup.ps1
         * Excute oobe-chocolatey.ps1
             * Install Chocolatey
+        * Execute oobe-software.ps1
             * Install Adobe Reader
             * Install Google Chrome
         * Execute oobe-associations.ps1
@@ -45,7 +48,7 @@
 
 <b>Notes:</b>
 
-* Package requires internet connection in OOBE
+* Package requires to be updated from time to time
 
 <b>Execute oobe-setup.ps1:</b>
 
