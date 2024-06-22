@@ -37,7 +37,29 @@
         * Skip "Privacy Experience" menu
         * Disable sleep
         * Configure Active Setup to execute desktop-provisioning.ps1
+* <b>Script desktop-provisioning.ps1:</b>
+    * Wait for network connection
+    * Install 7-Zip
+    * Install Notepad++
+    * Install VLC
+
+<b>Notes:</b>
+
+* Package requires internet connection in OOBE
+
+<b>Execute oobe-setup.ps1:</b>
 
 ```powershell
 powershell.exe -ExecutionPolicy Bypass -File oobe-setup.ps1
 ```
+
+## Related videos
+
+<b>PowerShell:</b>
+
+* [Windows 11 set default applications for new users](https://youtu.be/K-o_iGZQPBo)
+
+<b>Windows Configuration Designer:</b>
+
+* [Windows Configuration Designer: Downloading and installing](https://youtu.be/cSa12YaNMbU)
+* [Windows Configuration Designer playlist](https://www.youtube.com/playlist?list=PLVncjTDMNQ4SAh9zjdreUBYSzSf7L5IX2)

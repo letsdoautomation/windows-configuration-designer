@@ -2,10 +2,10 @@
 . .\oobe-chocolatey.ps1
 . .\oobe-associations.ps1
 
-# prepare provisioning folder
+# Prepare provisioning folder
 $provisioning = ni "$($env:ProgramData)\provisioning" -ItemType Directory -Force
 
-# move files from provisioning package to provisioning folder
+# Move files from provisioning package to provisioning folder
 gci -File | ? { $_.Name -notlike "oobe-*" } | % {
     cp $_.FullName "$($provisioning.FullName)\$($_.Name)" -Force
 }
