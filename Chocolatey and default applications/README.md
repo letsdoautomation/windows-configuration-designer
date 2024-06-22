@@ -1,4 +1,4 @@
-# Windows Configuration Designer: Chocolatey and default applications
+# Windows Configuration Designer: Chocolatey and default applications OPTION 1
 
 <b>Downloads:</b>
 
