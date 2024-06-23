@@ -9,11 +9,12 @@
 <b>Objectives:</b>
 
 * Provision software with chocolatey
-    * Google Chrome
-    * Adobe Reader
     * 7-Zip
     * Notepad++
     * VLC
+* Perform offline installation
+    * Google Chrome
+    * Adobe Reader
 * Set default applications
     * Google Chrome as default browser
     * Adobe Reader as default PDF reader
