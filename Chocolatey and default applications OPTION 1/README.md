@@ -37,7 +37,8 @@
         * Skip "Privacy Experience" menu
         * Disable sleep
         * Configure Active Setup to execute desktop-provisioning.ps1
-    * <b>Script desktop-provisioning.ps1:</b>
+
+* <b>Script desktop-provisioning.ps1:</b>
         * Wait for network connection
         * Install 7-Zip
         * Install Notepad++
