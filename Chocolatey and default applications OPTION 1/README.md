@@ -39,10 +39,10 @@
         * Configure Active Setup to execute desktop-provisioning.ps1
 
 * <b>Script desktop-provisioning.ps1:</b>
-        * Wait for network connection
-        * Install 7-Zip
-        * Install Notepad++
-        * Install VLC
+  * Wait for network connection
+  * Install 7-Zip
+  * Install Notepad++
+  * Install VLC
 
 <b>Notes:</b>
 
