@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LayoutModificationTemplate
+    xmlns="http://schemas.microsoft.com/Start/2014/LayoutModification"
+    xmlns:defaultlayout="http://schemas.microsoft.com/Start/2014/FullDefaultLayout"
+    xmlns:start="http://schemas.microsoft.com/Start/2014/StartLayout"
+    xmlns:taskbar="http://schemas.microsoft.com/Start/2014/TaskbarLayout"
+    Version="1">
+  <CustomTaskbarLayoutCollection PinListPlacement="Replace">
+    <defaultlayout:TaskbarLayout>
+      <taskbar:TaskbarPinList>
+        <taskbar:DesktopApp DesktopApplicationLinkPath="C:\Program Files\Google\Chrome\Application\chrome.exe" />
+        <taskbar:DesktopApp DesktopApplicationID="Microsoft.Windows.Explorer" />
+        <taskbar:DesktopApp DesktopApplicationID="Microsoft.WindowsCalculator_8wekyb3d8bbwe!app" />
+        <taskbar:DesktopApp DesktopApplicationLinkPath="C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE" />
+        <taskbar:DesktopApp DesktopApplicationLinkPath="C:\Program Files\Notepad++\notepad++.exe" />
+        <taskbar:DesktopApp DesktopApplicationLinkPath="C:\Windows\system32\WindowsPowerShell\v1.0\powershell_ise.exe" />
+        <taskbar:DesktopApp DesktopApplicationID="Microsoft.WindowsTerminal_8wekyb3d8bbwe!app" />
+      </taskbar:TaskbarPinList>
+    </defaultlayout:TaskbarLayout>
+ </CustomTaskbarLayoutCollection>
+</LayoutModificationTemplate>

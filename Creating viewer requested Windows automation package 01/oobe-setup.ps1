@@ -1,5 +1,8 @@
 # Execute oobe scripts
-. .\
+. .\oobe-powersettings.ps1
+. .\oobe-deploy-tmp.ps1 -ArchivePackageName "oobe-_tmp.exe" -Destination "C:\_tmp"
+. .\oobe-chocolatey.ps1
+. .\oobe-chrome-extensions.ps1
 
 # Prepare provisioning folder
 $provisioning = ni "$($env:ProgramData)\provisioning" -ItemType Directory -Force
@@ -19,14 +22,18 @@ $user = New-LocalUser @local_user
 $user | Set-LocalUser -PasswordNeverExpires $true 
 $user | Add-LocalGroupMember -Group "Administrators"
 
-# Skip privacy experiance
 $settings =
-[PSCustomObject]@{
+[PSCustomObject]@{ # Execute desktop-provisioning.ps1
     Path  = "SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce"
     Name  = "execute_provisioning"
-    Value = "cmd /c powershell.exe -ExecutionPolicy Bypass -File {0}\desktop-provisioning.ps1" -f $provisioning.FullName
+    Value = "cmd /c powershell.exe -ExecutionPolicy Bypass -File {0}\desktop-update-provisioning.ps1 -First" -f $provisioning.FullName
 },
-[PSCustomObject]@{
+[PSCustomObject]@{ # Use "Active Setup" to import desktop-icons.reg
+    Path  = "SOFTWARE\Microsoft\Active Setup\Installed Components\DesktopIcons"
+    Name  = "StubPath"
+    Value = 'reg import "{0}\desktop-icons.reg"' -f $provisioning.FullName
+},
+[PSCustomObject]@{ # Skip privacy experiance
     Path  = "SOFTWARE\Policies\Microsoft\Windows\OOBE"
     Name  = "DisablePrivacyExperience"
     Value = 1

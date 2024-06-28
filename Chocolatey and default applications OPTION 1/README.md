@@ -64,3 +64,12 @@ powershell.exe -ExecutionPolicy Bypass -File oobe-setup.ps1
 
 * [Windows Configuration Designer: Downloading and installing](https://youtu.be/cSa12YaNMbU)
 * [Windows Configuration Designer playlist](https://www.youtube.com/playlist?list=PLVncjTDMNQ4SAh9zjdreUBYSzSf7L5IX2)
+
+<b>PowerShell:</b>
+
+* [Windows 11 set default applications for new users](https://youtu.be/K-o_iGZQPBo)
+
+<b>Windows Configuration Designer:</b>
+
+* [Windows Configuration Designer: Downloading and installing](https://youtu.be/cSa12YaNMbU)
+* [Windows Configuration Designer playlist](https://www.youtube.com/playlist?list=PLVncjTDMNQ4SAh9zjdreUBYSzSf7L5IX2)
