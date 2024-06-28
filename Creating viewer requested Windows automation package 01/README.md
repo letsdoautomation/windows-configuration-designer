@@ -1,6 +1,6 @@
 # Windows Configuration Designer: Creating viewer requested Windows automation package 01
 
-<b>My request:</b>
+<b>My offer:</b>
 
 <img src="img/request.png" width=100% height=100%>
 
