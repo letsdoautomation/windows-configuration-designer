@@ -52,13 +52,4 @@ if ($status) {
 }
 else {
     . "$($provisioning.FullName)\desktop-software-provisioning.ps1" -ProvisioningFolder $provisioning.FullName
-    <#
-    $setup_runonce = @{
-        Path  = "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce"
-        Name  = "execute_software_provisioning"
-        Value = "cmd /c powershell.exe -ExecutionPolicy Bypass -File {0}\desktop-software-provisioning.ps1 -ProvisioningFolder {0}" -f $provisioning.FullName
-    }
-    New-ItemProperty @setup_runonce | Out-Null
-    Restart-Computer
-    #>
 }
