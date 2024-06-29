@@ -48,7 +48,7 @@
         * Enable Control Panel desktop icon
     * RunOnce executes desktop-update-provisioning.ps1
         * Wait for internet connection
-        * On first run install everything needed for Get-WindowsUpdate PowerShell module
+        * On first run install everything needed for PSWindowsUpdate PowerShell module
         * Run Windows Updates and restart the computer until there is no more Windows updates
         * Execute desktop-software-provisioning.ps1
             * Install chocolatey packages:
