@@ -71,7 +71,7 @@
 
 <b>Downloads:</b>
 
-* [Office Deployment Tool](learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#webappinstallforcelist)
+* [Office Deployment Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49117)
 * [Chocolatey](https://github.com/chocolatey/choco)
 
 <b>Execute oobe-setup.ps1:</b>
