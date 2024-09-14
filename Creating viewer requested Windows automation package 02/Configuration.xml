@@ -1,0 +1,9 @@
+<Configuration ID="e70a9852-5ced-4bd4-b85d-d46b138a7d78">
+  <Add SourcePath="C:\Windows\temp\m365" OfficeClientEdition="64" Channel="SemiAnnual">
+    <Product ID="HomeStudent2021Retail">
+      <Language ID="en-us" />
+    </Product>
+  </Add>
+  <Updates Enabled="TRUE" />
+  <Display Level="None" AcceptEULA="TRUE" />
+</Configuration>
