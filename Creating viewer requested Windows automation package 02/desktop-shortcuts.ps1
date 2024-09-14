@@ -4,11 +4,11 @@ $shortcuts =
     Location   = "$($env:PUBLIC)\Desktop\TeamViewerQS_x64.lnk"
 },
 [PSCustomObject]@{
-    TargetPath = "C:\Program Files (x86)\Microsoft Office\root\Office16\WINWORD.EXE"
+    TargetPath = "C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
     Location   = "$($env:PUBLIC)\Desktop\Word.lnk"
 },
 [PSCustomObject]@{
-    TargetPath = "C:\Program Files (x86)\Microsoft Office\root\Office16\EXCEL.EXE"
+    TargetPath = "C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE"
     Location   = "$($env:PUBLIC)\Desktop\Excel.lnk"
 },
 [PSCustomObject]@{
