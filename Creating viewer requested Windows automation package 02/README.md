@@ -83,6 +83,8 @@
 %LOCALAPPDATA%\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\LocalState\
 ```
 
+## Step 4: Create provisioning package
+
 <b>Execute oobe-setup.ps1:</b>
 
 ```powershell
