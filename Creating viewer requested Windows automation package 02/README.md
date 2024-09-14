@@ -59,7 +59,7 @@
 
 ## Creating package
 
-## Step 1: Download Chocolatey, TeamViewer QS, Office deployment tool and scripts from GitHub
+### Step 1: Download Chocolatey, TeamViewer QS, Office deployment tool and scripts from GitHub
 
 <b>Downloads:</b>
 
@@ -67,7 +67,7 @@
 * [TeamViewer Quick Support](https://www.teamviewer.com/en/solutions/use-cases/quicksupport/)
 * [Office Deployment Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49117)
 
-## Step 2: Prepare Microsoft Office Home Student 2021 installation files
+### Step 2: Prepare Microsoft Office Home Student 2021 installation files
 
 <b>Download installation files:</b>
 
@@ -75,7 +75,7 @@
 .\setup.exe /download .\Configuration.xml
 ```
 
-## Step 3: Create start menu file
+### Step 3: Create start menu file
 
 <b>Start layout location:</b>
 
@@ -83,7 +83,7 @@
 %LOCALAPPDATA%\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\LocalState\
 ```
 
-## Step 4: Create provisioning package
+### Step 4: Create provisioning package
 
 <b>Execute oobe-setup.ps1:</b>
 
