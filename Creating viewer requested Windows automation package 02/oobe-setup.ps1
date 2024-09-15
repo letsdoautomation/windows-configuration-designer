@@ -38,11 +38,6 @@ $settings =
     Name  = "execute_provisioning"
     Value = "cmd /c powershell.exe -ExecutionPolicy Bypass -File {0}\desktop-update-provisioning.ps1 -First" -f $provisioning.FullName
 },
-[PSCustomObject]@{ # Disable widgets
-    Path  = "SOFTWARE\Policies\Microsoft\Dsh"
-    Value = 0
-    Name  = "AllowNewsAndInterests"
-},
 [PSCustomObject]@{ # Skip privacy experiance
     Path  = "SOFTWARE\Policies\Microsoft\Windows\OOBE"
     Name  = "DisablePrivacyExperience"
