@@ -53,7 +53,7 @@ if ($status) {
 else {
 
     # Confgiure ActiveSetup to import user registry with RunOnce
-    ni "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\ImportUserRegistry" | New-ItemProperty -Name "StubPath" -Value 'REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v ImportUserRegistry /d "REG IMPORT C:\ProgramData\provisioning\desktop-user-registry.reg" /f'
+    ni "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\ImportUserRegistry" | New-ItemProperty -Name "StubPath" -Value 'REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce" /v ImportUserRegistry /d "REG IMPORT C:\ProgramData\provisioning\desktop-user-registry.reg" /f'
     # Execute desktop-software-provisioning.ps1
     . "$($provisioning.FullName)\desktop-software-provisioning.ps1" -ProvisioningFolder $provisioning.FullName
 }
