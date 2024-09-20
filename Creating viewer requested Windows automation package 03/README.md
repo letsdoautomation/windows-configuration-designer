@@ -51,6 +51,12 @@
 
 ### Step 2: Create start menu file
 
+<b>Install Office with chocolatey:</b>
+
+```powershell
+choco install office365business -y
+```
+
 <b>Start layout location:</b>
 
 ```powershell
