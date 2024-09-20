@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<DefaultAssociations>
-  <Association Identifier="mailto" ProgId="Outlook.URL.mailto.15" ApplicationName="Outlook" />
-  <Association Identifier=".htm" ProgId="ChromeHTML" ApplicationName="Google Chrome" />
-  <Association Identifier=".html" ProgId="ChromeHTML" ApplicationName="Google Chrome" />
-  <Association Identifier=".pdf" ProgId="AcroExch.Document.DC" ApplicationName="Adobe Acrobat Reader"/>
-  <Association Identifier="http" ProgId="ChromeHTML" ApplicationName="Google Chrome" />
-  <Association Identifier="https" ProgId="ChromeHTML" ApplicationName="Google Chrome" />
-</DefaultAssociations>
