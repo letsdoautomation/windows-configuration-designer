@@ -1,7 +1,6 @@
 $packages = 
 "googlechrome",
-"adobereader",
-"office365business" -join " "
+"adobereader" -join " "
 
 $chocolatey_msi_file = "chocolatey-2.3.0.0.msi"
 
@@ -19,6 +18,17 @@ Start-Process @install_chocolatey
 $install_software_packages = @{
     FilePath     = "C:\ProgramData\chocolatey\choco.exe"
     ArgumentList = "install {0} -y --no-progress --ignore-checksums" -f $packages
+    NoNewWindow  = $true
+    PassThru     = $true
+    Wait         = $true
+}
+
+Start-Process @install_software_packages
+
+# Install Office 365
+$install_software_packages = @{
+    FilePath     = "$($env:ProgramData)\provisioning\setup.exe"
+    ArgumentList = "/configure $($env:ProgramData)\provisioning\configuration-online.xml" -f $packages
     NoNewWindow  = $true
     PassThru     = $true
     Wait         = $true
