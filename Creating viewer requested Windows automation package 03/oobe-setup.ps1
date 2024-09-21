@@ -1,3 +1,6 @@
+# Execute scripts
+. .\oobe-software.ps1
+
 # Prepare provisioning folder
 $provisioning = ni "$($env:ProgramData)\provisioning" -ItemType Directory -Force
 
@@ -5,8 +8,6 @@ $provisioning = ni "$($env:ProgramData)\provisioning" -ItemType Directory -Force
 gci -File | ? { $_.Name -notlike "oobe-*" -and $_.Name -ne "start2.bin"} | % {
     cp $_.FullName "$($provisioning.FullName)\$($_.Name)" -Force
 }
-# Execute scripts
-. .\oobe-software.ps1
 
 # Create Directory_A, Directory_B directory
 "C:\Users\Default\Directory_A", 
