@@ -26,12 +26,12 @@ $install_software_packages = @{
 Start-Process @install_software_packages
 
 # Install Office 365
-$install_software_packages = @{
-    FilePath     = "$($env:ProgramData)\provisioning\setup.exe"
-    ArgumentList = "/configure $($env:ProgramData)\provisioning\configuration-online.xml" -f $packages
+$install_m365_office = @{
+    FilePath     = "C:\ProgramData\chocolatey\choco.exe"
+    ArgumentList = "install office365business --params `"'/exclude:Groove OneDrive'`" -y --no-progress --ignore-checksums"
     NoNewWindow  = $true
     PassThru     = $true
     Wait         = $true
 }
 
-Start-Process @install_software_packages
+Start-Process @install_m365_office
