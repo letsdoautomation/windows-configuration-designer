@@ -27,6 +27,11 @@
            * Prevent OneDrive from installing
         * Configure RunOnce to execute desktop-update-provisioning.ps1 
 * <b>STAGE 2</b> Actions performed in bplocal users desktop:
+    * Import desktop-user-registry.reg (will repeat for each user on first logon)
+        * Move taskbar icons to left
+        * Remove chat, copilot, taskview from taskbar
+        * Enable This PC and Control panel desktop icons
+        * Rename This PC to computername
     * Execute desktop-update-provisioning.ps1
         * Wait for internet connection
         * On first run install everything needed for PSWindowsUpdate PowerShell module
@@ -39,11 +44,6 @@
             * Adobe Reader
          * Join domain and set local admin password: </br>
         <img src="img/semi.png" width=30% height=30%>
-    * Import desktop-user-registry.reg (will repeat for each user on first logon)
-        * Move taskbar icons to left
-        * Remove chat, copilot, taskview from taskbar
-        * Enable This PC and Control panel desktop icons
-        * Rename This PC to computername
     
 
 ## Prepare start menu layout files
