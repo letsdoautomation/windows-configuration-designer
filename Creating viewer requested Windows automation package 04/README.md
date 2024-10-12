@@ -19,12 +19,13 @@
         * Remove windows store apps
         * Deploy start menu
         * Create desktop-user-registry.reg file
-        * Prevent OneDrive, HomeDev, Outlook (New) from installing
+        * Prevent HomeDev, Outlook (New) from installing
         * Disable widgets
         * Skip privacy experiance
         * Configure ActiveSetup
-           * Execute desktop-update-provisioning.ps1
            * Import desktop-user-registry.reg
+           * Prevent OneDrive from installing
+        * Configure RunOnce to execute desktop-update-provisioning.ps1 
 * <b>STAGE 2</b> Actions performed in bplocal users desktop:
     * Execute desktop-update-provisioning.ps1
         * Wait for internet connection
