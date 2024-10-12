@@ -62,9 +62,7 @@ choco install googlechrome adobereader Office365Business -y --no-progress --igno
 %LOCALAPPDATA%\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\LocalState\
 ```
 
-## Creating package
-
-### Create provisioning package
+## Create provisioning package
 
 <b>Downloads:</b>
 
