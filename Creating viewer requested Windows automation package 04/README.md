@@ -22,7 +22,7 @@
         * Prevent OneDrive, HomeDev, Outlook (New) from installing
         * Disable widgets
         * Skip privacy experiance
-* <b>STAGE 2</b> Actions performed in admin users desktop:
+* <b>STAGE 2</b> Actions performed in bplocal users desktop:
     * Execute desktop-update-provisioning.ps1
         * Wait for internet connection
         * On first run install everything needed for PSWindowsUpdate PowerShell module
