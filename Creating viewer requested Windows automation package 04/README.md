@@ -22,6 +22,9 @@
         * Prevent OneDrive, HomeDev, Outlook (New) from installing
         * Disable widgets
         * Skip privacy experiance
+        * Configure ActiveSetup
+           * Execute desktop-update-provisioning.ps1
+           * Import desktop-user-registry.reg
 * <b>STAGE 2</b> Actions performed in bplocal users desktop:
     * Execute desktop-update-provisioning.ps1
         * Wait for internet connection
