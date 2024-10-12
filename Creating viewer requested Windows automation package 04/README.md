@@ -8,14 +8,17 @@
 
 * <b>STAGE 1</b> Actions performed in OOBE:
     * Configure Wireless settings
-    * Create C:\ProgramData\provisioning directory
-    * Move necessary files from package to C:\ProgramData\provisioning
     * Skip OOBE
     * Execute oobe-setup.ps1
+        * Create C:\ProgramData\provisioning directory
+        * Move necessary files from package to C:\ProgramData\provisioning
         * Create bplocal local user
         * Set computer name to BP-%SERIAL%
         * Install chocoltey (offline installation)
-        * Remove all windows default store apps
+        * Set Google Chrome as default browser and Adobe Reader as default PDF reader
+        * Remove windows store apps
+        * Deploy start menu
+        * Create desktop-user-registry.reg file
         * Prevent OneDrive, HomeDev, Outlook (New) from installing
         * Disable widgets
         * Skip privacy experiance
