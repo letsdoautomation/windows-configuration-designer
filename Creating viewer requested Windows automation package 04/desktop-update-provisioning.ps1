@@ -57,7 +57,6 @@ else {
     "adobereader",
     "zoom",
     "firefox",
-    'zoom',
     'Office365Business' -join " "
 
     $install_software_packages = @{
