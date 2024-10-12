@@ -17,7 +17,7 @@ gci -File | ? { $_.Name -notlike "oobe-*" -and $_.Name -notlike "chocolatey*"  -
 }
 
 # Change computer name Set computer name to BP-%SERIAL%
-$serial = "PC-{0}" -f ((gwmi -class win32_bios).SerialNumber -replace " ")
+$serial = "BP-{0}" -f ((gwmi -class win32_bios).SerialNumber -replace " ")
 
 if($serial.length -gt 15){
     $serial = $serial.SubString(0, 14)
