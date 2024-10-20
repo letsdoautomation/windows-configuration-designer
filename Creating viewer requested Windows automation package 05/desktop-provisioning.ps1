@@ -25,7 +25,7 @@ param(
     </defaultlayout:TaskbarLayout>
  </CustomTaskbarLayoutCollection>
 </LayoutModificationTemplate>
-"@ | Out-File "$($provisioning.FullName)\taskbar.xml" -Encoding utf8
+"@ | Out-File "$($provisioning.FullName)\taskbar.xml" -Encoding utf8 -Force -ea SilentlyContinue
 
 # Create default programs configuration file
 @"
@@ -43,7 +43,7 @@ param(
   <Association Identifier="https" ProgId="ChromeHTML" ApplicationName="Google Chrome" />
   <Association Identifier="mailto" ProgId="Outlook.URL.mailto.15" ApplicationName="Outlook" />
 </DefaultAssociations>
-"@ | Out-File "$($provisioning.FullName)\associations.xml" -Encoding utf8
+"@ | Out-File "$($provisioning.FullName)\associations.xml" -Encoding utf8 -Force -ea SilentlyContinue
 
 # wait for network
 $ProgressPreference_bk = $ProgressPreference
