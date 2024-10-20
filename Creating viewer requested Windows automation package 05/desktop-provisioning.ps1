@@ -6,7 +6,7 @@ param(
 )
 
 # Create taskbar configuration file
-@"
+$taskbar_configuration = @"
 <?xml version="1.0" encoding="utf-8"?>
 <LayoutModificationTemplate
     xmlns="http://schemas.microsoft.com/Start/2014/LayoutModification"
@@ -25,10 +25,11 @@ param(
     </defaultlayout:TaskbarLayout>
  </CustomTaskbarLayoutCollection>
 </LayoutModificationTemplate>
-"@ | Out-File "$($provisioning.FullName)\taskbar.xml" -Encoding utf8 -Force -ea SilentlyContinue
+"@ 
+
 
 # Create default programs configuration file
-@"
+$default_program_configuration = @"
 <?xml version="1.0" encoding="UTF-8"?>
 <DefaultAssociations>
   <Association Identifier=".htm" ProgId="ChromeHTML" ApplicationName="Google Chrome" />
@@ -43,7 +44,7 @@ param(
   <Association Identifier="https" ProgId="ChromeHTML" ApplicationName="Google Chrome" />
   <Association Identifier="mailto" ProgId="Outlook.URL.mailto.15" ApplicationName="Outlook" />
 </DefaultAssociations>
-"@ | Out-File "$($provisioning.FullName)\associations.xml" -Encoding utf8 -Force -ea SilentlyContinue
+"@
 
 # wait for network
 $ProgressPreference_bk = $ProgressPreference
@@ -92,6 +93,10 @@ if ($status) {
     Restart-Computer
 }
 else {
+
+    $default_program_configuration | Out-File "$($provisioning.FullName)\associations.xml" -Encoding utf8 -Force -ea SilentlyContinue
+    $taskbar_configuration | Out-File "$($provisioning.FullName)\taskbar.xml" -Encoding utf8 -Force -ea SilentlyContinue
+
     $app_packages = 
     "Microsoft.WindowsCamera",
     "Clipchamp.Clipchamp",
