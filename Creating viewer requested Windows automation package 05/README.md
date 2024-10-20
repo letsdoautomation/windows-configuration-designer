@@ -24,7 +24,7 @@
         * <b>(If Windows 10)</b> Configure RunOnce to execute desktop-upgrade.ps1
         * <b>(If Windows 10)</b> Create autologon.bat
         * <b>(If not Windows 10)</b> Configure RunOnce to execute desktop-provisioning.ps1
-* <b>STAGE 2</b> Actions performed in bplocal users desktop:
+* <b>STAGE 2</b> Actions performed in provisioning users desktop:
     * <b>(If Windows 10)</b> Execute desktop-upgrade.ps1
         * Wait for internet connection
         * Check if there is no compatibility issues

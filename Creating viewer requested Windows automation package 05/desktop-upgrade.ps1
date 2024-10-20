@@ -54,17 +54,6 @@ switch ("{0:X}" -f $upgrade_check.ExitCode) {
 }
 
 if ($canUpgrade) {
-    foreach ($setting in $settings) {
-        $registry = [Microsoft.Win32.Registry]::LocalMachine.OpenSubKey($setting.Name, $true)
-        if ($null -eq $registry) {
-            $registry = [Microsoft.Win32.Registry]::LocalMachine.CreateSubKey($setting.Name, $true)
-        }
-        $setting.Group | % {
-            $registry.SetValue($_.name, $_.value)
-        }
-        $registry.Dispose()
-    }
-
     Write-Host "Starting Windows upgrade"
 
     $execute_upgrade = @{
