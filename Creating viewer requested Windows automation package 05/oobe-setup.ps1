@@ -18,7 +18,7 @@ $create_local_user = @{
 $local_user = New-LocalUser @create_local_user 
 $local_user | Set-LocalUser -PasswordNeverExpires $true 
 $local_user | Add-LocalGroupMember -Group "Administrators"
-
+<# 
 # Configure autologon for provisioning user
 $registry_settings +=
 [PSCustomObject]@{ # Enable autologon
@@ -36,7 +36,7 @@ $registry_settings +=
     Name  = "DefaultPassword"
     Value = $password
 }
-
+ #>
 # Create C:\ProgramData\provisioning directory
 $provisioning = ni "$($env:ProgramData)\provisioning" -ItemType Directory -Force
 

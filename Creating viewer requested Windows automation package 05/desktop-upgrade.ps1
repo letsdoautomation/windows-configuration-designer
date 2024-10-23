@@ -61,7 +61,7 @@ $autologon_bat =
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v AutoAdminLogon /d "1" /f
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v DefaultUserName /d "{0}" /f
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v DefaultPassword /d "{1}" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce" /v execute_provisioning /d "cmd /c powershell.exe -ExecutionPolicy Bypass -File {2}\desktop-provisioning.ps1 -First -Provisioning {2}" /f
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce" /v execute_provisioning /d "cmd /c powershell.exe -ExecutionPolicy Bypass -File {2}\desktop-provisioning.ps1 -First -Provisioning {2} -username {0} -password {1}" /f
 "@ -f $username, $password, $provisioning.FullName
 
 if (("{0:X}" -f $compatibility_check.ExitCode) -eq 'C1900210') {
