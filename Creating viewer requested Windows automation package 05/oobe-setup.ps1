@@ -1,49 +1,59 @@
-$usb_drive_name = 'ESD-USB'
-$provisioning_user_password = 'password55'
-$chocolatey_msi_file = "chocolatey-2.3.0.0.msi"
+param(
+    [Parameter(Mandatory = $True)]
+    [string]$choco_executable,
+    [Parameter(Mandatory = $True)]
+    [string]$username,
+    [Parameter(Mandatory = $True)]
+    [string]$password,
+    [string]$usb_name
+)
 
-# Create local provisioning account
-$local_user = @{
-    Name     = 'provisioning'
-    Password = (ConvertTo-SecureString -AsPlainText $provisioning_user_password -Force)
+$registry_settings = @()
+
+# Create local user account for provisioning
+$create_local_user = @{
+    Name     = $username
+    Password = (ConvertTo-SecureString -AsPlainText $password -Force)
 }
+$local_user = New-LocalUser @create_local_user 
+$local_user | Set-LocalUser -PasswordNeverExpires $true 
+$local_user | Add-LocalGroupMember -Group "Administrators"
 
-$user = New-LocalUser @local_user 
-$user | Set-LocalUser -PasswordNeverExpires $true 
-$user | Add-LocalGroupMember -Group "Administrators"
+# Configure autologon for provisioning user
+$registry_settings +=
+[PSCustomObject]@{ # Enable autologon
+    Path  = "SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
+    Name  = "AutoAdminLogon"
+    Value = "1"
+},
+[PSCustomObject]@{ # Set autologon username
+    Path  = "SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
+    Name  = "DefaultUserName"
+    Value = $username
+},
+[PSCustomObject]@{ # Set autologon password
+    Path  = "SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
+    Name  = "DefaultPassword"
+    Value = $password
+}
 
 # Create C:\ProgramData\provisioning directory
 $provisioning = ni "$($env:ProgramData)\provisioning" -ItemType Directory -Force
 
 # Move files from provisioning package to provisioning folder
-gci -File | ? { $_.Name -notlike "oobe-*" -and $_.Name -notlike "chocolatey*" } | % {
+gci -File | ? { $_.Name -notlike "oobe-*" -and $_.Name -ne $choco_executable } | % {
     cp $_.FullName "$($provisioning.FullName)\$($_.Name)" -Force
 }
 
 # Install chocolatey
 $install_chocolatey = @{
-    FilePath         = '{0}\system32\msiexec.exe' -f $env:SystemRoot
-    ArgumentList     = '/i "{0}\{1}" /qn /norestart' -f (gl).path, $chocolatey_msi_file
-    NoNewWindow      = $true
-    PassThru         = $true
-    Wait             = $true
+    FilePath     = "$($env:SystemRoot)\system32\msiexec.exe"
+    ArgumentList = "/i {0}\$($choco_executable) /qn /norestart" -f (gl).path
+    NoNewWindow  = $true
+    PassThru     = $true
+    Wait         = $true
 }
-
-Start-Process @install_chocolatey
-
-# Create user registry settings file
-# Taskbar settings
-$user_registry_settings = @"
-Windows Registry Editor Version 5.00
-
-[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
-"TaskbarMn"=dword:00000000
-"TaskbarAl"=dword:00000000
-"ShowCopilotButton"=dword:00000000
-"ShowTaskViewButton"=dword:00000000
-"@
-
-$user_registry_settings | Out-File "$($provisioning.FullName)\desktop-user-registry.reg" -Encoding unicode
+Start-Process @install_chocolatey | out-null
 
 # Configure power settings
 "powercfg /x -monitor-timeout-ac 0",
@@ -58,10 +68,8 @@ $user_registry_settings | Out-File "$($provisioning.FullName)\desktop-user-regis
     cmd /c $_
 }
 
-$settings = @()
-
-$settings +=
-[PSCustomObject]@{ # Skip privacy experiance
+$registry_settings +=
+[PSCustomObject]@{ # Skip privacy experiance menu
     Path  = "SOFTWARE\Policies\Microsoft\Windows\OOBE"
     Name  = "DisablePrivacyExperience"
     Value = 1
@@ -70,59 +78,38 @@ $settings +=
     Path  = "SOFTWARE\Policies\Microsoft\Dsh"
     Value = 0
     Name  = "AllowNewsAndInterests"
-},
-[PSCustomObject]@{ # Configure autologon for provisioning user
-    Path  = "SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
-    Name  = "AutoAdminLogon"
-    Value = "1"
-},
-[PSCustomObject]@{
-    Path  = "SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
-    Name  = "DefaultUserName"
-    Value = "provisioning"
-},
-[PSCustomObject]@{
-    Path  = "SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
-    Name  = "DefaultPassword"
-    Value = $provisioning_user_password
 }
 
-$autologon_bat = @"
-@echo off
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v AutoAdminLogon /d "1" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v DefaultUserName /d "provisioning" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v DefaultPassword /d "{0}" /f
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce" /v execute_provisioning /d "cmd /c powershell.exe -ExecutionPolicy Bypass -File {1}\desktop-provisioning.ps1 -First -Provisioning {1}" /f
-"@ -f $provisioning_user_password, $provisioning.FullName
-
-if ((Get-WmiObject Win32_OperatingSystem).Caption -match "Windows 10") {
-    # IF Windows 10
-    $settings += [PSCustomObject]@{ # Execute desktop-upgrade.ps1 using RunOnce
+# If Windows 10
+if ((gwmi Win32_OperatingSystem).Caption.Contains('Windows 10')) {
+    $registry_settings += [PSCustomObject]@{ # Execute desktop-upgrade.ps1 using RunOnce
         Path  = "SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce"
         Name  = "execute_windows10_upgrade"
-        Value = "cmd /c powershell.exe -ExecutionPolicy Bypass -File {0}\desktop-upgrade.ps1 -usb_drive_name {1} -provisioning {0}" -f $provisioning.FullName, $usb_drive_name
+        Value = "cmd /c powershell.exe -ExecutionPolicy Bypass -File $($provisioning.FullName)\desktop-upgrade.ps1 -provisioning $($provisioning.FullName) -usb_name $($usb_name) -username $($username) -password $($password)"
     }
-
-    $autologon_bat | Out-File "$($provisioning.FullName)\autologon.bat" -Encoding ASCII
 }
+# If anything else
 else {
-    # IF Everything else
-    $settings += [PSCustomObject]@{ # Execute desktop-provisioning.ps1 using RunOnce
+    $registry_settings += [PSCustomObject]@{ # Execute desktop-provisioning.ps1 using RunOnce
         Path  = "SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce"
         Name  = "execute_provisioning"
-        Value = "cmd /c powershell.exe -ExecutionPolicy Bypass -File {0}\desktop-provisioning.ps1 -First -Provisioning {0}" -f $provisioning.FullName
+        Value = "cmd /c powershell.exe -ExecutionPolicy Bypass -File $($provisioning.FullName)\desktop-provisioning.ps1 -provisioning $($provisioning.FullName) -first -username $($username) -password $($password)"
     }
 }
 
-$settings = $settings | group Path
-
-foreach ($setting in $settings) {
+# Apply registry settings
+foreach ($setting in ($registry_settings | group Path)) {
     $registry = [Microsoft.Win32.Registry]::LocalMachine.OpenSubKey($setting.Name, $true)
     if ($null -eq $registry) {
         $registry = [Microsoft.Win32.Registry]::LocalMachine.CreateSubKey($setting.Name, $true)
     }
     $setting.Group | % {
-        $registry.SetValue($_.name, $_.value)
+        if (!$_.Type) {
+            $registry.SetValue($_.name, $_.value)
+        }
+        else {
+            $registry.SetValue($_.name, $_.value, $_.type)
+        }
     }
     $registry.Dispose()
 }

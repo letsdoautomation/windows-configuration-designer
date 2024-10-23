@@ -1,0 +1,1 @@
+# Windows Configuration Designer: Creating viewer requested Windows automation package 06
