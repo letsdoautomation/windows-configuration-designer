@@ -1,3 +1,15 @@
+
+
+
+foreach ($language in "de-DE" , "hu-HU") {
+    Install-Language -Language $language
+}
+
+
+switch(){
+    
+}
+
 $domain_join = @{
     DomainName = 'ad.letsdoautomation.com'
     OUPath     = "OU=computers,OU=letsdoautomation,DC=ad,DC=letsdoautomation,DC=com"
