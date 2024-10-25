@@ -42,11 +42,11 @@
             * ELSE
                 * Execute desktop-provisioning.ps1
 * Actions performed in provisioning users desktop:
-    * desktop-upgrade.ps1 is execute from executing it directly or with RunOnce
+    * desktop-provisioning.ps1 is execute from executing it directly or with RunOnce
         * Wait for internet connection
         * Install PSWindowsUpdate modules
         * Use PSWindowsUpdate to install windows updates
-        * Restart if required, reconfigure autologon and re-run desktop-upgrade.ps1
+        * Restart if required, reconfigure autologon and re-run desktop-provisioning.ps1
         * Set time zone
         * Set default applications
             * Set Google Chrome as default browser
