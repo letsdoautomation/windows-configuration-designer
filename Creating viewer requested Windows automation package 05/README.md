@@ -9,7 +9,6 @@
 ## Automated actions
 
 * Actions performed in OOBE by provisioning package:
-    * Skip OOBE
     * Create local administrator accounts
         * admin
         * admin2
