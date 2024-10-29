@@ -4,8 +4,7 @@ param(
     [Parameter(Mandatory = $True)]
     [string]$domain_password,
     [Parameter(Mandatory = $True)]
-    [string]$domain_name,
-    [switch]$first
+    [string]$domain_name
 )
 
 $password = ConvertTo-SecureString $domain_password -AsPlainText -Force
@@ -38,6 +37,11 @@ $registry_settings +=
     Path  = "SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
     Name  = "DefaultDomainName"
     Value = $domain_name
+},
+[PSCustomObject]@{ # Execute desktop-software-provisioning.ps1 using RunOnce
+    Path  = "SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce"
+    Name  = "desktop_software_provisioning"
+    Value = "cmd /c powershell.exe -ExecutionPolicy Bypass -File $($env:ProgramData)\provisioning\desktop-software-provisioning.ps1"
 }
 
 foreach ($language in "de-DE" , "hu-HU") {
@@ -79,8 +83,11 @@ $window.FindName('button_join_and_rename').Add_Click(
             NewName          = $input_computer_name.Text
         }
         switch -wildcard ($input_computer_name.Text) {
-            "AA-*" {
-                $domain_join.OUPath = "OU=Computers,OU=Domain,DC=ad,DC=letsdoautomation,DC=com"
+            "AA*" {
+                $domain_join.OUPath = "OU=AA Computers,OU=Example,DC=ad,DC=letsdoautomation,DC=com"
+            }
+            "BB*" {
+                $domain_join.OUPath = "OU=BB Computers,OU=Example,DC=ad,DC=letsdoautomation,DC=com"
             }
         }
 

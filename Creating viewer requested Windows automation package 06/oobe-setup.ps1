@@ -54,7 +54,7 @@ $registry_settings +=
 [PSCustomObject]@{ # Execute desktop-provisioning.ps1 using RunOnce
     Path  = "SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce"
     Name  = "execute_desktop_provisioning"
-    Value = "cmd /c powershell.exe -ExecutionPolicy Bypass -File $($provisioning.FullName)\desktop-provisioning.ps1 -domain_username $($domain_username) -domain_password $($domain_password) -domain_name $($domain_name) -First"
+    Value = "cmd /c powershell.exe -ExecutionPolicy Bypass -File $($provisioning.FullName)\desktop-provisioning.ps1 -domain_username $($domain_username) -domain_password $($domain_password) -domain_name $($domain_name)"
 },
 [PSCustomObject]@{ # Disable start from opening on first logon
     Path  = "SOFTWARE\Microsoft\Active Setup\Installed Components\ImportUserRegistry"
