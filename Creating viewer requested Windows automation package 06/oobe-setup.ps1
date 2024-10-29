@@ -6,8 +6,18 @@ param(
     [Parameter(Mandatory = $True)]
     [string]$domain_username,
     [Parameter(Mandatory = $True)]
-    [string]$domain_password
+    [string]$domain_password,
+    [Parameter(Mandatory = $True)]
+    [string]$domain_name
 )
+
+# Create C:\ProgramData\provisioning directory
+$provisioning = ni "$($env:ProgramData)\provisioning" -ItemType Directory -Force
+
+# Move files from provisioning package to provisioning folder
+gci -File | ? { $_.Name -notlike "oobe-*" } | % {
+    cp $_.FullName "$($provisioning.FullName)\$($_.Name)" -Force
+}
 
 $registry_settings = @()
 
@@ -40,6 +50,16 @@ $registry_settings +=
     Path  = "SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
     Name  = "DefaultPassword"
     Value = $local_password
+},
+[PSCustomObject]@{ # Execute desktop-provisioning.ps1 using RunOnce
+    Path  = "SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce"
+    Name  = "execute_desktop_provisioning"
+    Value = "cmd /c powershell.exe -ExecutionPolicy Bypass -File $($provisioning.FullName)\desktop-provisioning.ps1 -domain_username $($domain_username) -domain_password $($domain_password) -domain_name $($domain_name) -First"
+},
+[PSCustomObject]@{ # Disable start from opening on first logon
+    Path  = "SOFTWARE\Microsoft\Active Setup\Installed Components\ImportUserRegistry"
+    Name  = "StubPath"
+    Value = 'REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v StartShownOnUpgrade /t REG_DWORD /d 1 /f'
 }
 
 # Apply registry settings
