@@ -4,6 +4,10 @@
 
 <img src="img/request.png" width=100% height=100%>
 
+<b>Request update:</b>
+
+* Select organization unit by computer names first letters
+
 ## Automated actions
 
 * Actions performed in OOBE by provisioning package:
