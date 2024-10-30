@@ -22,7 +22,8 @@
         * Configure Active Setup to disable start menu from opening
 * Actions performed by desktop-provisioning.ps1 in provisioning users Desktop
     * Install de-DE, hu-HU languages
-    * Execute GUI for setting computername
+    * Execute GUI for setting computername <br />
+    <img src="img/gui.png" width=25% height=25%>
     * Join computer to domain
     * Configure autologon for domain user
     * Configure RunOnce to execute desktop-software-provisioning.ps1
