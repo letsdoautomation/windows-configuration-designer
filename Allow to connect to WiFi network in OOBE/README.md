@@ -4,6 +4,11 @@
 
 <img src="img/request.png" width=100% height=100%>
 
+<b>Notes:</b>
+
+* Configuration for computers with Windows OEM pre-install
+* Better option most likely would be to inject oobe configuration in Windows installation
+
 ## Automated actions
 
 * Actions performed in OOBE by provisioning package:
