@@ -7,7 +7,7 @@
 <b>Notes:</b>
 
 * Configuration for computers with Windows OEM pre-install
-* Better option most likely would be to inject oobe configuration in Windows installation
+* Better option most likely would be to inject oobe configuration in Windows installation image
 
 ## Automated actions
 
