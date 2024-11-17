@@ -29,10 +29,6 @@ $packages =
     Scope = $scope
 },
 [PSCustomObject]@{
-    Name  = "Microsoft.Teams.Classic"
-    Scope = $scope
-},
-[PSCustomObject]@{
     Name  = "Google.Chrome"
     Scope = $scope
 },
