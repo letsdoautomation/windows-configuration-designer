@@ -9,6 +9,15 @@
 * Offline domain can be performed without connection to AD but connections is still required for first logon
   * Can be used with VPN before logon
 
+<b>Package actions:</b>
+
+* Skip OOBE
+* Execute oobe-setup.ps1
+  * Disable privacy experience
+* Execute oobe-offline-domain-join.ps1
+  * Perform offline domain join
+  * Restart
+
 <b>Create multiple offline domain join files:</b>
 
 ```powershell
@@ -31,7 +40,7 @@ foreach($computer in $computers){
 <b>oobe-offline-domain-join.ps1 execution:</b>
 
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File oobe-offline-domain-join.ps1
+powershell.exe -ExecutionPolicy Bypass -File oobe-offline-domain-join.ps1 -usb_name "USB-256"
 ```
 
 <b>oobe-setup.ps1 execution:</b>
