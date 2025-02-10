@@ -7,6 +7,7 @@
 <b>Notes:</b>
 
 * Offline domain can be performed without connection to AD but connections is still required for first logon
+  * Can be used with VPN before logon
 
 <b>Create multiple offline domain join files:</b>
 
@@ -27,12 +28,6 @@ foreach($computer in $computers){
 }
 ```
 
-<b>Perform offline join:</b>
-
-```batch
-djoin /requestodj /loadfile "C:\Users\admin\Desktop\NB05.txt" /windowspath C:\windows /localos
-```
-
 <b>oobe-offline-domain-join.ps1 execution:</b>
 
 ```powershell
@@ -46,6 +41,10 @@ powershell.exe -ExecutionPolicy Bypass -File oobe-setup.ps1
 ```
 
 ## Related videos
+
+<b>Windows Server:</b>
+
+* [Offline domain join](https://youtu.be/3-L9Ak_kmlA)
 
 <b>PowerShell:</b>
 
