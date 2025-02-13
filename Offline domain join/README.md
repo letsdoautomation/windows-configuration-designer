@@ -16,6 +16,7 @@
   * Disable privacy experience
 * Execute oobe-offline-domain-join.ps1
   * Perform offline domain join
+   * Remove Offline domain join file from usb
   * Restart
 
 <b>Create multiple offline domain join files:</b>
