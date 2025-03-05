@@ -4,6 +4,8 @@
 
 * Ninite software installation needs to be last step in the provisioning process
 
+<b>Package:</b>
+
 * Actions performed in OOBE by provisioning package
   * Skip OOBE 
   * Execute oobe-setup.ps1
