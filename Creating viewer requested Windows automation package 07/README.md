@@ -10,7 +10,7 @@
 
 ## Automated actions
 
-* Actions performed in OOBE by autounattend.xml
+* Actions performed before OOBE by autounattend.xml
   * Select en-us language
   * Prepare partitions for Windows installation
   * Install Windows 11 PRO
