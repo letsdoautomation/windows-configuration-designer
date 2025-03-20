@@ -43,5 +43,3 @@ powershell.exe -Command Set-LocalUser -name admin -PasswordNeverExpires $true
 
 * [Windows Configuration Designer playlist](https://www.youtube.com/playlist?list=PLVncjTDMNQ4SAh9zjdreUBYSzSf7L5IX2)
 * [Windows Configuration Designer: Downloading and installing](https://youtu.be/cSa12YaNMbU)
-* [Windows Configuration Designer: Skip Out-Of-Box Experience](https://youtu.be/Lqf4i1nHV7I)
-* [Windows Configuration Designer: Remove Windows 11 bloatware and configure start menu](https://youtu.be/lpbrQIvKGI4)
