@@ -85,3 +85,12 @@ $register_scheduled_task = @{
 }
 
 Register-ScheduledTask @register_scheduled_task
+
+# Pause Windows Updates for 30 days
+$pause_windows_update = @{
+    Path  = 'HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
+    Name  = 'PauseUpdatesExpiryTime'
+    Value = (Get-Date).AddDays(30).ToUniversalTime().ToString( "yyyy-MM-ddTHH:mm:ssZ" )
+}
+
+Set-ItemProperty @pause_windows_update

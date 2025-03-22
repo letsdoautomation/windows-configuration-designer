@@ -33,7 +33,9 @@
         * If updates are found, installed and if restart is required
           * Remove KIOSK configuration
           * Re-configure KIOSK
+          * Pause Windows Updates for 30 days
           * Restart computer
+      * Pause Windows Updates for 30 days 
 
 ## Creating package
 

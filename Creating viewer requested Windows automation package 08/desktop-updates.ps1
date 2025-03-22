@@ -44,7 +44,14 @@ if ($null -eq $module) {
 $updates = Get-WindowsUpdate
 
 if ($null -ne $updates) {
-    Install-WindowsUpdate -AcceptAll -Install -IgnoreReboot | select KB, Result, Title, Size
+    $date = get-date
+    $export_csv = @{
+        Path              = "C:\ProgramData\provisioning\updateLog.csv"
+        Encoding          = 'UTF8'
+        NoTypeInformation = $true
+        Append            = $true
+    }
+    Install-WindowsUpdate -AcceptAll -Install -IgnoreReboot | select KB, @{n = 'InstallDate'; e = { $date.ToString('yyyy.MM.dd') } }, Result, Title, Size | Export-Csv @export_csv
 }
 
 $status = Get-WURebootStatus -Silent
@@ -71,6 +78,15 @@ if ($status) {
     $cim_instance = Get-CimInstance @get_cim_instance
     $cim_instance.Configuration = [System.Net.WebUtility]::HtmlEncode($kiosk_configuration)
     Set-CimInstance -CimInstance $cim_instance
+
+    # Pause Windows Updates for 30 days
+    $pause_windows_update = @{
+        Path  = 'HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
+        Name  = 'PauseUpdatesExpiryTime'
+        Value = (Get-Date).AddDays(30).ToUniversalTime().ToString( "yyyy-MM-ddTHH:mm:ssZ" )
+    }
+
+    Set-ItemProperty @pause_windows_update
 
     Restart-Computer
 }
