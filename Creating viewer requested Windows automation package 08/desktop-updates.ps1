@@ -28,6 +28,7 @@ $kiosk_configuration = @"
 </AssignedAccessConfiguration>
 "@
 
+# Resume Windows Updates
 $settings = 
 [PSCustomObject]@{
     Name = 'PauseFeatureUpdatesEndTime'
