@@ -28,6 +28,59 @@ $kiosk_configuration = @"
 </AssignedAccessConfiguration>
 "@
 
+$settings = @{
+    Name = 'PauseFeatureUpdatesEndTime'
+    Path = 'SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
+},
+@{
+    Name = 'PauseQualityUpdatesEndTime'
+    Path = 'SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
+},
+@{
+    Name = 'PauseUpdatesExpiryTime'
+    Path = 'SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
+},
+@{
+    Name = 'PauseFeatureUpdatesStartTime'
+    Path = 'SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
+},
+@{
+    Name = 'PauseQualityUpdatesStartTime'
+    Path = 'SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
+},
+@{
+    Name = 'PauseUpdatesStartTime'
+    Path = 'SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
+},
+@{
+    Name = 'PausedFeatureDate'
+    Path = 'SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\Settings'
+},
+@{
+    Name = 'PausedQualityDate'
+    Path = 'SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\Settings'
+},
+@{
+    Name = 'PausedFeatureStatus'
+    Path = 'SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\Settings'
+},
+@{
+    Name = 'PausedQualityStatus'
+    Path = 'SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\Settings'
+}
+
+foreach ($setting in ($settings | group Path)) {
+    $registry = [Microsoft.Win32.Registry]::LocalMachine.OpenSubKey($setting.Name, $true)
+    if ($null -eq $registry) {
+        continue
+    }
+
+    foreach ($item in $setting.Group.Where({ $null -ne $registry.GetValue($_.name) })) {
+        $registry.DeleteValue($item.name, $true)
+    }
+    $registry.Dispose()
+}
+
 # Setup Nuget and PSWindowsUpdate module for Windows Update
 $nuget = Get-PackageProvider 'NuGet' -ListAvailable -ErrorAction SilentlyContinue
 
@@ -44,7 +97,15 @@ if ($null -eq $module) {
 $updates = Get-WindowsUpdate
 
 if ($null -ne $updates) {
-    $output = Install-WindowsUpdate -AcceptAll -Install -IgnoreReboot | select KB, @{n = 'InstallDate'; e = { $date.ToString('yyyy.MM.dd') } }, Result, Title, Size
+
+    $install_updates = @{
+        AcceptAll    = $true
+        Install      = $true
+        IgnoreReboot = $true
+    }
+    $output = Install-WindowsUpdate @install_updates | select KB, @{n = 'InstallDate'; e = { $date.ToString('yyyy.MM.dd') } }, Result, Title, Size
+
+    # Saves update installation log to csv file in C:\programdata\provisioning folder
     $date = get-date
     $export_csv = @{
         Path              = "C:\ProgramData\provisioning\updateLog.csv"
@@ -56,6 +117,61 @@ if ($null -ne $updates) {
 }
 
 $status = Get-WURebootStatus -Silent
+
+# Pause Windows Updates for 30 days
+$pause_for_days = 30
+
+$date = Get-Date
+    
+$pause_start = $date.ToUniversalTime().ToString( "yyyy-MM-ddTHH:mm:ssZ" )
+$pause_end = $date.AddDays($pause_for_days).ToUniversalTime().ToString( "yyyy-MM-ddTHH:mm:ssZ" )
+    
+$settings = 
+foreach ($item in 'PauseFeatureUpdatesEndTime', 'PauseQualityUpdatesEndTime', 'PauseUpdatesExpiryTime') {
+    [PSCustomObject]@{
+        Path  = "SOFTWARE\Microsoft\WindowsUpdate\UX\Settings"
+        Name  = $item
+        Value = $pause_end
+    }
+}
+    
+$settings += 
+foreach ($item in 'PauseFeatureUpdatesStartTime', 'PauseQualityUpdatesStartTime', 'PauseUpdatesStartTime') {
+    [PSCustomObject]@{
+        Path  = "SOFTWARE\Microsoft\WindowsUpdate\UX\Settings"
+        Name  = $item
+        Value = $pause_start
+    }
+}
+    
+$settings +=
+foreach ($item in 'PausedFeatureDate', 'PausedQualityDate') {
+    [PSCustomObject]@{
+        Path  = "SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\Settings"
+        Name  = $item
+        Value = $pause_start
+    }
+}
+    
+$settings +=
+foreach ($item in 'PausedFeatureStatus', 'PausedQualityStatus') {
+    [PSCustomObject]@{
+        Path  = "SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\Settings"
+        Name  = $item
+        Value = 1
+    }
+}
+    
+foreach ($setting in ($settings | group Path)) {
+    $registry = [Microsoft.Win32.Registry]::LocalMachine.OpenSubKey($setting.Name, $true)
+    if ($null -eq $registry) {
+        $registry = [Microsoft.Win32.Registry]::LocalMachine.CreateSubKey($setting.Name, $true)
+    }
+    $setting.Group | % {
+        $registry.SetValue($_.name, $_.value)
+    }
+    $registry.Dispose()
+}
 
 if ($status) {
     # Sign out KIOSK user
@@ -79,15 +195,6 @@ if ($status) {
     $cim_instance = Get-CimInstance @get_cim_instance
     $cim_instance.Configuration = [System.Net.WebUtility]::HtmlEncode($kiosk_configuration)
     Set-CimInstance -CimInstance $cim_instance
-
-    # Pause Windows Updates for 30 days
-    $pause_windows_update = @{
-        Path  = 'HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
-        Name  = 'PauseUpdatesExpiryTime'
-        Value = (Get-Date).AddDays(30).ToUniversalTime().ToString( "yyyy-MM-ddTHH:mm:ssZ" )
-    }
-
-    Set-ItemProperty @pause_windows_update
 
     Restart-Computer
 }

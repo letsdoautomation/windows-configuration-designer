@@ -87,13 +87,60 @@ $register_scheduled_task = @{
 Register-ScheduledTask @register_scheduled_task
 
 # Pause Windows Updates for 30 days
-$pause_windows_update = @{
-    Path  = 'HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
-    Name  = 'PauseUpdatesExpiryTime'
-    Value = (Get-Date).AddDays(30).ToUniversalTime().ToString( "yyyy-MM-ddTHH:mm:ssZ" )
+
+$pause_for_days = 30
+
+$date = Get-Date
+
+$pause_start = $date.ToUniversalTime().ToString( "yyyy-MM-ddTHH:mm:ssZ" )
+$pause_end = $date.AddDays($pause_for_days).ToUniversalTime().ToString( "yyyy-MM-ddTHH:mm:ssZ" )
+
+$settings = 
+foreach ($item in 'PauseFeatureUpdatesEndTime', 'PauseQualityUpdatesEndTime', 'PauseUpdatesExpiryTime') {
+    [PSCustomObject]@{
+        Path  = "SOFTWARE\Microsoft\WindowsUpdate\UX\Settings"
+        Name  = $item
+        Value = $pause_end
+    }
 }
 
-Set-ItemProperty @pause_windows_update
+$settings += 
+foreach ($item in 'PauseFeatureUpdatesStartTime', 'PauseQualityUpdatesStartTime', 'PauseUpdatesStartTime') {
+    [PSCustomObject]@{
+        Path  = "SOFTWARE\Microsoft\WindowsUpdate\UX\Settings"
+        Name  = $item
+        Value = $pause_start
+    }
+}
+
+$settings +=
+foreach ($item in 'PausedFeatureDate', 'PausedQualityDate') {
+    [PSCustomObject]@{
+        Path  = "SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\Settings"
+        Name  = $item
+        Value = $pause_start
+    }
+}
+
+$settings +=
+foreach ($item in 'PausedFeatureStatus', 'PausedQualityStatus') {
+    [PSCustomObject]@{
+        Path  = "SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\Settings"
+        Name  = $item
+        Value = 1
+    }
+}
+
+foreach ($setting in ($settings | group Path)) {
+    $registry = [Microsoft.Win32.Registry]::LocalMachine.OpenSubKey($setting.Name, $true)
+    if ($null -eq $registry) {
+        $registry = [Microsoft.Win32.Registry]::LocalMachine.CreateSubKey($setting.Name, $true)
+    }
+    $setting.Group | % {
+        $registry.SetValue($_.name, $_.value)
+    }
+    $registry.Dispose()
+}
 
 # Configure power settings
 "powercfg /x -monitor-timeout-ac 45",

@@ -28,14 +28,15 @@
       * Run under System user
       * Execute desktop-updates.ps1
         * Wait for network connection
+        * Resume Windows updates
         * Install PSWindowsUpdate powershell module
-        * Execute PSWindowsUpdate to check for Windows updates
+        * Install Windows updates
+        * Pause Windows Updates for 30 days
         * If updates are found, installed and if restart is required
           * Remove KIOSK configuration
           * Re-configure KIOSK
           * Pause Windows Updates for 30 days
           * Restart computer
-      * Pause Windows Updates for 30 days
       * Configure AC power settings
         * Sleep after 45 mins
         * Turn off monitor after 45 min
