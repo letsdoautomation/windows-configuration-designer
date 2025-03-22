@@ -43,6 +43,31 @@
 powershell.exe -ExecutionPolicy Bypass -File oobe-setup.ps1
 ```
 
+## Removing kiosk configuration
+
+<b>Downloads:</b>
+
+* [PsTools](https://learn.microsoft.com/en-us/sysinternals/downloads/pstools)
+
+<b>Execute powershell as system:</b>
+
+```batch
+PsExec.exe -i -s powershell
+```
+
+<b>Remove KIOSK configuration:</b>
+
+```powershell
+$get_cim_instance = @{
+    Namespace = "root\cimv2\mdm\dmmap"
+    ClassName = "MDM_AssignedAccess"
+}
+
+$cim_instance = Get-CimInstance @get_cim_instance
+$cim_instance.Configuration = $null
+Set-CimInstance -CimInstance $cim_instance
+```
+
 ## Related videos
 
 <b>PowerShell:</b>
