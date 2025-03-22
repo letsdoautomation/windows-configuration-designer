@@ -1,4 +1,4 @@
-# Windows Configuration Designer: Configure single application KIOSK mode
+# Windows Configuration Designer: Creating viewer requested Windows automation package 08
 
 <b>Documentation:</b>
 
@@ -11,27 +11,36 @@
 
 <img src="img/request.png" width=100% height=100%>
 
-## Automated actions
+## Automated provisioning package actions
 
 * Actions performed in OOBE by provisioning package
   * Disable OOBE
   * Create admin account
-  * Set admin password to never expires
-  * Configure Kiosk
-    * Launch edge on startup
-    * Set startup page to C:\Kiosk\index.html
-  * Deploy static web page to C:\Kiosk\
+  * Execute oobe-setup.ps1
+    * Set admin password to never expires
+    * Move files from provisioning package to C:\PrograData\Provisioning folder
+    * Deploy static web page to C:\Kiosk\
+    * Configure Kiosk
+      * Launch edge on startup
+      * Set startup page to C:\Kiosk\index.html
+    * Configure Windows task scheduler
+      * Run daily at '3:00 AM'
+      * Run under System user
+      * Execute desktop-updates.ps1
+        * Wait for network connection
+        * Install PSWindowsUpdate powershell module
+        * Execute PSWindowsUpdate to check for Windows updates
+        * If updates are found, installed and if restart is required
+          * Remove KIOSK configuration
+          * Re-configure KIOSK
+          * Restart computer
 
-<b>Deploy static web page:</b>
+## Creating package
 
-```
-cmd /c copy index.exe %TEMP% && cmd /c %TEMP%\index.exe -y -o"C:\Kiosk"
-```
+<b>oobe-setup.ps1 execution:</b>
 
-<b>Set never expires for admin passwotd:</b>
-
-```
-powershell.exe -Command Set-LocalUser -name admin -PasswordNeverExpires $true
+```powershell
+powershell.exe -ExecutionPolicy Bypass -File oobe-setup.ps1
 ```
 
 ## Related videos
