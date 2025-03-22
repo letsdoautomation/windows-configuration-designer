@@ -28,43 +28,44 @@ $kiosk_configuration = @"
 </AssignedAccessConfiguration>
 "@
 
-$settings = @{
+$settings = 
+[PSCustomObject]@{
     Name = 'PauseFeatureUpdatesEndTime'
     Path = 'SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
 },
-@{
+[PSCustomObject]@{
     Name = 'PauseQualityUpdatesEndTime'
     Path = 'SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
 },
-@{
+[PSCustomObject]@{
     Name = 'PauseUpdatesExpiryTime'
     Path = 'SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
 },
-@{
+[PSCustomObject]@{
     Name = 'PauseFeatureUpdatesStartTime'
     Path = 'SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
 },
-@{
+[PSCustomObject]@{
     Name = 'PauseQualityUpdatesStartTime'
     Path = 'SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
 },
-@{
+[PSCustomObject]@{
     Name = 'PauseUpdatesStartTime'
     Path = 'SOFTWARE\Microsoft\WindowsUpdate\UX\Settings'
 },
-@{
+[PSCustomObject]@{
     Name = 'PausedFeatureDate'
     Path = 'SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\Settings'
 },
-@{
+[PSCustomObject]@{
     Name = 'PausedQualityDate'
     Path = 'SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\Settings'
 },
-@{
+[PSCustomObject]@{
     Name = 'PausedFeatureStatus'
     Path = 'SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\Settings'
 },
-@{
+[PSCustomObject]@{
     Name = 'PausedQualityStatus'
     Path = 'SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\Settings'
 }
