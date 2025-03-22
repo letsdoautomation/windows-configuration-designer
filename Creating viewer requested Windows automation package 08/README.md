@@ -35,7 +35,10 @@
           * Re-configure KIOSK
           * Pause Windows Updates for 30 days
           * Restart computer
-      * Pause Windows Updates for 30 days 
+      * Pause Windows Updates for 30 days
+      * Configure AC power settings
+        * Sleep after 45 mins
+        * Turn off monitor after 45 min
 
 ## Creating package
 

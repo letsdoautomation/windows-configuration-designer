@@ -94,3 +94,9 @@ $pause_windows_update = @{
 }
 
 Set-ItemProperty @pause_windows_update
+
+# Configure power settings
+"powercfg /x -monitor-timeout-ac 45",
+"powercfg /x -standby-timeout-ac 45" | % {
+    cmd /c $_
+}

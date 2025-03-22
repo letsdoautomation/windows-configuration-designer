@@ -44,6 +44,7 @@ if ($null -eq $module) {
 $updates = Get-WindowsUpdate
 
 if ($null -ne $updates) {
+    $output = Install-WindowsUpdate -AcceptAll -Install -IgnoreReboot | select KB, @{n = 'InstallDate'; e = { $date.ToString('yyyy.MM.dd') } }, Result, Title, Size
     $date = get-date
     $export_csv = @{
         Path              = "C:\ProgramData\provisioning\updateLog.csv"
@@ -51,13 +52,13 @@ if ($null -ne $updates) {
         NoTypeInformation = $true
         Append            = $true
     }
-    Install-WindowsUpdate -AcceptAll -Install -IgnoreReboot | select KB, @{n = 'InstallDate'; e = { $date.ToString('yyyy.MM.dd') } }, Result, Title, Size | Export-Csv @export_csv
+    $output | Export-Csv @export_csv
 }
 
 $status = Get-WURebootStatus -Silent
 
 if ($status) {
-    # Sign out Kiosk user
+    # Sign out KIOSK user
     $process = get-process msedge -IncludeUserName | select UserName, SessionId -Unique
 
     $process | ? { $_.UserName -like "*kioskUser*" } | % {
@@ -74,7 +75,7 @@ if ($status) {
     $cim_instance.Configuration = $null
     Set-CimInstance -CimInstance $cim_instance    
 
-    # Configure Kiosk mode
+    # Configure KIOSK mode
     $cim_instance = Get-CimInstance @get_cim_instance
     $cim_instance.Configuration = [System.Net.WebUtility]::HtmlEncode($kiosk_configuration)
     Set-CimInstance -CimInstance $cim_instance
