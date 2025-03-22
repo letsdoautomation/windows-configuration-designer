@@ -33,6 +33,7 @@
         * Install Windows updates
         * Pause Windows Updates for 30 days
         * If updates are found, installed and if restart is required
+          * Sign out KIOSK user
           * Remove KIOSK configuration
           * Re-configure KIOSK
           * Pause Windows Updates for 30 days
