@@ -52,6 +52,7 @@ $cim_instance.Configuration = [System.Net.WebUtility]::HtmlEncode($kiosk_configu
 Set-CimInstance -CimInstance $cim_instance
 
 # Configure scheduled task for Windows updates
+[System.IO.DirectoryInfo]$provisioning = "$($env:ProgramData)\provisioning"
 $configure_scheduled_action = @{
     Execute  = "powershell.exe"
     Argument = "-ExecutionPolicy Bypass -File $($provisioning.FullName)\desktop-updates.ps1"
@@ -144,6 +145,7 @@ foreach ($setting in ($settings | group Path)) {
 
 # Configure power settings
 "powercfg /x -monitor-timeout-ac 45",
-"powercfg /x -standby-timeout-ac 45" | % {
+"powercfg /x -standby-timeout-ac 45",
+"powercfg -h off" | % {
     cmd /c $_
 }
