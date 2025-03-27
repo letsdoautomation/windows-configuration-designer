@@ -23,6 +23,7 @@
     * Configure Kiosk
       * Launch edge on startup
       * Set startup page to C:\Kiosk\index.html
+    * Pause Windows Updates for 30 days  
     * Configure Windows task scheduler
       * Run daily at '3:00 AM'
       * Run under System user
@@ -38,7 +39,6 @@
           * Re-configure KIOSK
           * Pause Windows Updates for 30 days
           * Restart computer
-    * Pause Windows Updates for 30 days 
     * Configure AC power settings
       * Disable hibernate 
       * Sleep after 45 mins
