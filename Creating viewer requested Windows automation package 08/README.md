@@ -18,6 +18,7 @@
   * Create admin account
   * Execute oobe-setup.ps1
     * Set admin password to never expires
+    * Create C:\PrograData\Provisioning folder on the computer
     * Move files from provisioning package to C:\PrograData\Provisioning folder
     * Deploy static web page to C:\Kiosk\
     * Configure Kiosk
