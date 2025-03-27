@@ -22,7 +22,7 @@
     * Move files from provisioning package to C:\PrograData\Provisioning folder
     * Deploy static web page to C:\Kiosk\
     * Configure Kiosk
-      * Launch edge on startup
+      * Launch Microsoft Edge on startup
       * Set startup page to C:\Kiosk\index.html
     * Pause Windows Updates for 30 days  
     * Configure Windows task scheduler
