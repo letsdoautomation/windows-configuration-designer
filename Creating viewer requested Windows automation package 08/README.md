@@ -38,7 +38,6 @@
           * Sign out KIOSK user
           * Remove KIOSK configuration
           * Re-configure KIOSK
-          * Pause Windows Updates for 30 days
           * Restart computer
     * Configure AC power settings
       * Disable hibernate 
