@@ -52,7 +52,6 @@ $cim_instance.Configuration = [System.Net.WebUtility]::HtmlEncode($kiosk_configu
 Set-CimInstance -CimInstance $cim_instance
 
 # Configure scheduled task for Windows updates
-[System.IO.DirectoryInfo]$provisioning = "$($env:ProgramData)\provisioning"
 $configure_scheduled_action = @{
     Execute  = "powershell.exe"
     Argument = "-ExecutionPolicy Bypass -File $($provisioning.FullName)\desktop-updates.ps1"
