@@ -15,9 +15,9 @@
     * Move files from provisioning package to C:\PrograData\Provisioning folder
     * Configure RunOnce to execute desktop-provisioning.ps1
 * Actions performed by desktop-provisioning.ps1 in users Desktop
-  * Flip display
+  * Change screen orientation from landscape to portrait
   * Configure RunOnce to execute desktop-kiosk.ps1
-  * Restart
+  * Restart computer
 * Actions performed by desktop-kiosk.ps1 in users Desktop
   * Execute kiosk-configuration.ps1 with PsExec
 
