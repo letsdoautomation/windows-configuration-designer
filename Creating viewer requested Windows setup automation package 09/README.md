@@ -1,4 +1,4 @@
-# Windows Configuration Designer: Creating viewer requested Windows automation package 09
+# Windows Configuration Designer: Creating viewer requested Windows setup automation package 09
 
 <b>Request:</b>
 
