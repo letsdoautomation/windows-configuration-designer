@@ -62,7 +62,7 @@
   * Disable Activity history
   * Disable Cloud content search
   * Disable search highlights
-  * Configure <span style="color:red">FAKE MDM</span>
+  * Configure <code style="color : red">FAKE MDM</code>
   * Set Google Chrome home page
   * Set Google Chrome home page as new tab page
   * Enable Google Chrome bookmarks bar
