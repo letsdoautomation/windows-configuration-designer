@@ -408,6 +408,11 @@ $settings =
     Value = 0 # 1 - Enable, 0 - Disable
     Name  = "BackgroundModeEnabled"
 },
+[PSCustomObject]@{ # Disable Google Chrome first run pop-ups
+    Path  = "SOFTWARE\Policies\Google\Chrome"
+    Value = 0
+    Name  = "PromotionsEnabled"
+},
 [PSCustomObject]@{ # Execute desktop-provisioning-2.ps1
     Path  = "SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce"
     Name  = "execute_provisioning_2"

@@ -68,8 +68,9 @@
   * Enable Google Chrome bookmarks bar
   * Enable Google Chrome home button
   * Disable Google Chrome background mode
+  * Disable Google Chrome first run pop-ups
   * Configure power settings
-  * Configure RunOnce to execute desktop-provisioning.ps1
+  * Configure RunOnce to execute desktop-provisioning-2.ps1
   * Restart computer
 * Actions performed by desktop-provisioning-2.ps1 in users Desktop
   * Wait for internet connection
