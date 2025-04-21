@@ -388,6 +388,11 @@ $settings =
     Value = "https://google.com"
     Name  = "NewTabPageLocation" 
 },
+[PSCustomObject]@{ # Set homepage
+    Path  = "SOFTWARE\Policies\Google\Chrome"
+    Value = "https://google.com"
+    Name  = "HomepageLocation" 
+},
 [PSCustomObject]@{ # Set homepage same as new page
     Path  = "SOFTWARE\Policies\Google\Chrome"
     Value = 1 # 1 - Enable, 2 - Disable
@@ -413,22 +418,22 @@ $settings =
     Value = 0
     Name  = "PromotionsEnabled"
 },
-[PSCustomObject]@{
+[PSCustomObject]@{ # Disable Google Chrome first run pop-ups
     Path  = "SOFTWARE\Policies\Google\Chrome"
     Value = 0
-    Name  = "PrivacySandboxPromptEnabled" # notification
+    Name  = "PrivacySandboxPromptEnabled" 
 },
-[PSCustomObject]@{ 
+[PSCustomObject]@{ # Disable Google Chrome first run pop-ups
     Path  = "SOFTWARE\Policies\Google\Chrome"
     Value = 0
     Name  = "PrivacySandboxAdMeasurementEnabled"
 },
-[PSCustomObject]@{ 
+[PSCustomObject]@{ # Disable Google Chrome first run pop-ups
     Path  = "SOFTWARE\Policies\Google\Chrome"
     Value = 0
     Name  = "PrivacySandboxAdTopicsEnabled"
 },
-[PSCustomObject]@{ 
+[PSCustomObject]@{ # Disable Google Chrome first run pop-ups
     Path  = "SOFTWARE\Policies\Google\Chrome"
     Value = 0
     Name  = "PrivacySandboxSiteEnabledAdsEnabled"

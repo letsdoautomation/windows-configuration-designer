@@ -12,6 +12,7 @@ do {
 do {
     try {
         Start-Process "winget" -ea Stop
+        sleep -s 30
         break
     }
     catch [System.InvalidOperationException] {
