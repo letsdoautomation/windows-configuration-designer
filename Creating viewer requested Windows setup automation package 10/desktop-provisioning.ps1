@@ -383,10 +383,10 @@ $settings =
     Value = "1.2"
     Name  = "ProtoVer"
 },
-[PSCustomObject]@{ # Set homepage
+[PSCustomObject]@{ # Set new page
     Path  = "SOFTWARE\Policies\Google\Chrome"
-    Value = "https://www.google.com/"
-    Name  = "HomepageLocation" 
+    Value = "https://google.com"
+    Name  = "NewTabPageLocation" 
 },
 [PSCustomObject]@{ # Set homepage same as new page
     Path  = "SOFTWARE\Policies\Google\Chrome"
@@ -412,6 +412,26 @@ $settings =
     Path  = "SOFTWARE\Policies\Google\Chrome"
     Value = 0
     Name  = "PromotionsEnabled"
+},
+[PSCustomObject]@{
+    Path  = "SOFTWARE\Policies\Google\Chrome"
+    Value = 0
+    Name  = "PrivacySandboxPromptEnabled" # notification
+},
+[PSCustomObject]@{ 
+    Path  = "SOFTWARE\Policies\Google\Chrome"
+    Value = 0
+    Name  = "PrivacySandboxAdMeasurementEnabled"
+},
+[PSCustomObject]@{ 
+    Path  = "SOFTWARE\Policies\Google\Chrome"
+    Value = 0
+    Name  = "PrivacySandboxAdTopicsEnabled"
+},
+[PSCustomObject]@{ 
+    Path  = "SOFTWARE\Policies\Google\Chrome"
+    Value = 0
+    Name  = "PrivacySandboxSiteEnabledAdsEnabled"
 },
 [PSCustomObject]@{ # Execute desktop-provisioning-2.ps1
     Path  = "SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce"
