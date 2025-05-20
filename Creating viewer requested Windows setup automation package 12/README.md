@@ -14,11 +14,10 @@
     * Configure Power Settings (Disable sleep and monitor off)
     * Configure RunOnce to execute desktop-provisioning.ps1
 * Actions performed in users Desktop
+  * Perform Windows updates
   * <b>IF</b> Windows version lower than 24H2 then desktop-upgrade.ps1 is executed
     * Attemp upgrade to 24H2 version
     * Execute desktop-provisioning.ps1
-  * <b>ELSE</b> desktop-provisioning.ps1 is executed
-    * Perform windows updates
 
 <b>Downloads:</b>
 
