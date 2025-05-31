@@ -15,7 +15,7 @@
     * Configure RunOnce to execute desktop-provisioning.ps1
 * Actions performed in users Desktop
   * Perform Windows updates
-  * <b>IF</b> Windows version lower than 24H2 then desktop-upgrade.ps1 is executed
+  * <b>IF</b> Windows version lower than 24H2 execute desktop-upgrade.ps1
     * Attemp upgrade to 24H2 version
     * Execute desktop-provisioning.ps1
 
