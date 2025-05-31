@@ -79,6 +79,10 @@ else {
         }
         Restart-Computer   
     }
+    else {
+        # Other provisioning actions goes here
+        Write-Host 'Provisioning done.' -BackgroundColor Green
+    }
 }
 
 Write-Host "All Done!" -ForegroundColor Green
