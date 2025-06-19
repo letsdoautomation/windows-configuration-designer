@@ -1,5 +1,6 @@
 # Execute oobe scripts
-. .\
+. .\oobe-chocolatey.ps1
+. .\oobe-associations.ps1
 
 # Prepare provisioning folder
 $provisioning = ni "$($env:ProgramData)\provisioning" -ItemType Directory -Force
