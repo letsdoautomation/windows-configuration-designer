@@ -1,4 +1,4 @@
-# # Windows Configuration Designer: Creating viewer requested Windows setup automation package 13
+# Windows Configuration Designer: Creating viewer requested Windows setup automation package 13
 
 <b>Request:</b>
 
