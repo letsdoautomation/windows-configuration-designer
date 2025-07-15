@@ -83,7 +83,7 @@ Get-AppxProvisionedPackage -Online | ? { $_.DisplayName -in $remove_package } | 
 # Install msi files
 $msi_installation_files = 
 "gcpwstandaloneenterprise64.msi",
-"chocolatey-2.4.3.0.msi"
+"chocolatey-2.5.0.0.msi"
 
 foreach ($msi_file in $msi_installation_files) {
     $install_msi = @{
