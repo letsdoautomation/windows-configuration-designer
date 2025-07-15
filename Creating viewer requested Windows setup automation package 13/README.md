@@ -63,6 +63,12 @@
 * [Chocolatey](https://github.com/chocolatey/choco)
 * [Google Credential Provider for Windows®](https://tools.google.com/dlpage/gcpw/)
 
+<b>Configure computer name:</b>
+
+```batch
+WA-%SERIAL%
+```
+
 <b>oobe-setup.ps1 execution:</b>
 
 ```powershell
